@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IClawOS - 智能操作系统</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">IClawMini</a>
+            <ul class="nav-links">
+                <li><a href="index.zh.html">首页</a></li>
+                <li><a href="hardware.zh.html">硬件</a></li>
+                <li><a href="iclawos.zh.html" class="active">IClawOS</a></li>
+                <li><a href="contact.zh.html">联络</a></li>
+            </ul>
+            <a href="iclawos.html" class="lang-btn">EN</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>IClawOS</h1>
+            <p>AI 原生的 Linux 发行版，您的 24/7 数字管家</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>关于 IClawOS</h2>
+            <p style="font-size: 18px; color: var(--text-secondary); line-height: 1.8; max-width: 800px;">
+                IClawOS 是一个 AI 原生的 Linux 发行版（基于 Ubuntu/Debian），专为普通用户、知识工作者和创作者设计，作为 24/7 运行的"数字管家"。它的核心特性是深度集成的 AI，不仅能回答问题，还能自主操作系统、管理文件和执行复杂工作流。
+            </p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>三层架构</h2>
+            <div class="architecture">
+                <div class="architecture-layer">
+                    <h3>系统核心层</h3>
+                    <p>具有"编排器"功能，采用混合 AI 模型路由器。使用轻量级本地模型（如 Qwen 2.5）处理隐私任务，可切换到更强大的云模型处理复杂推理，通过向量数据库维护持久的用户记忆。</p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>执行沙盒层</h3>
+                    <p>关键安全创新是"Pi-embedded"引擎。它在临时隔离的沙盒中运行每个 AI 任务（使用 cgroup/namespace），并对文件访问、网络和应用自动化进行严格的基于权限的控制，防止滥用。</p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>用户空间</h3>
+                    <p>提供全局 AI 入口点（热键/语音），通过自然语言完成开箱即用的设置，以及"技能商店"可一键安装自动化能力（如文件管理、报告生成）。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>核心特性</h2>
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <h3>智能模型路由</h3>
+                    <ul class="features-list">
+                        <li>本地轻量模型保护隐私</li>
+                        <li>云模型处理复杂任务</li>
+                        <li>自动模型切换</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>安全沙盒</h3>
+                    <ul class="features-list">
+                        <li>cgroup/namespace 隔离</li>
+                        <li>严格权限控制</li>
+                        <li>防止 AI 滥用</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>自然语言交互</h3>
+                    <ul class="features-list">
+                        <li>热键/语音全局唤醒</li>
+                        <li>自然语言系统设置</li>
+                        <li>目标导向的命令执行</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>技能商店</h3>
+                    <ul class="features-list">
+                        <li>一键安装自动化能力</li>
+                        <li>办公任务技能</li>
+                        <li>媒体处理技能</li>
+                        <li>系统管理技能</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>软件栈</h2>
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <h3>操作系统</h3>
+                    <ul class="features-list">
+                        <li>IClawOS</li>
+                        <li>Buildroot</li>
+                        <li>Debian</li>
+                        <li>Ubuntu</li>
+                        <li>官方 RK3588 BSP 支持</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>AI 运行时</h3>
+                    <ul class="features-list">
+                        <li>RKNN-Toolkit2-Lite</li>
+                        <li>Ollama</li>
+                        <li>llama.cpp</li>
+                        <li>支持最高 7B 本地模型</li>
+                        <li>TensorFlow Lite / PyTorch / ONNX</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>云服务</h3>
+                    <ul class="features-list">
+                        <li>Samba</li>
+                        <li>NFS</li>
+                        <li>DLNA</li>
+                        <li>多用户支持</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>开发支持</h3>
+                    <ul class="features-list">
+                        <li>Node.js</li>
+                        <li>Python</li>
+                        <li>MQTT/HTTP</li>
+                        <li>Docker 支持</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>未来规划</h2>
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <h3>离线能力</h3>
+                    <p>完全离线运行能力</p>
+                </div>
+                <div class="spec-card">
+                    <h3>多智能体协作</h3>
+                    <p>多智能体协作支持</p>
+                </div>
+                <div class="spec-card">
+                    <h3>系统深度定制</h3>
+                    <p>低级别系统定制，内核调优</p>
+                </div>
+                <div class="spec-card">
+                    <h3>OpenClaw 集成</h3>
+                    <p>作为核心系统服务集成</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 IClawMini. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

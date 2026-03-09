@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IClawOS - Intelligent Operating System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">IClawMini</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hardware.html">Hardware</a></li>
+                <li><a href="iclawos.html" class="active">IClawOS</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="iclawos.zh.html" class="lang-btn">中文</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>IClawOS</h1>
+            <p>AI-native Linux distribution, your 24/7 digital butler</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>About IClawOS</h2>
+            <p style="font-size: 18px; color: var(--text-secondary); line-height: 1.8; max-width: 800px;">
+                IClawOS is an AI-native Linux distribution (based on Ubuntu/Debian) designed for general users, knowledge workers, and creators, functioning as a 24/7 "digital butler". Its defining feature is a deeply integrated AI that can not only answer questions but also autonomously operate the system, manage files, and execute complex workflows.
+            </p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Three-Layer Architecture</h2>
+            <div class="architecture">
+                <div class="architecture-layer">
+                    <h3>System Core Layer</h3>
+                    <p>Features an "Orchestrator" with a hybrid AI model router. Uses lightweight local models (like Qwen 2.5) for privacy-focused tasks, can switch to more powerful cloud models for complex reasoning, and maintains persistent user memory via vector database.</p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>Execution Sandbox Layer</h3>
+                    <p>The key security innovation is the "Pi-embedded" engine. It runs every AI task in a temporary, isolated sandbox (using cgroup/namespace) with strict, permission-based controls over file access, network, and application automation to prevent misuse.</p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>User Space</h3>
+                    <p>Offers a global AI entry point (hotkey/voice), out-of-box setup via natural language, and a "Skill Store" for one-click installation of automated capabilities (e.g., file management, report generation).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Core Features</h2>
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <h3>Smart Model Routing</h3>
+                    <ul class="features-list">
+                        <li>Local lightweight models protect privacy</li>
+                        <li>Cloud models for complex tasks</li>
+                        <li>Automatic model switching</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Secure Sandbox</h3>
+                    <ul class="features-list">
+                        <li>cgroup/namespace isolation</li>
+                        <li>Strict permission controls</li>
+                        <li>Prevents AI misuse</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Natural Language Interaction</h3>
+                    <ul class="features-list">
+                        <li>Hotkey/voice global wake-up</li>
+                        <li>Natural language system setup</li>
+                        <li>Goal-oriented command execution</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Skill Store</h3>
+                    <ul class="features-list">
+                        <li>One-click automation capabilities</li>
+                        <li>Office task skills</li>
+                        <li>Media processing skills</li>
+                        <li>System management skills</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Software Stack</h2>
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <h3>Operating System</h3>
+                    <ul class="features-list">
+                        <li>IClawOS</li>
+                        <li>Buildroot</li>
+                        <li>Debian</li>
+                        <li>Ubuntu</li>
+                        <li>Official RK3588 BSP support</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>AI Runtime</h3>
+                    <ul class="features-list">
+                        <li>RKNN-Toolkit2-Lite</li>
+                        <li>Ollama</li>
+                        <li>llama.cpp</li>
+                        <li>Up to 7B local models</li>
+                        <li>TensorFlow Lite / PyTorch / ONNX</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Cloud Services</h3>
+                    <ul class="features-list">
+                        <li>Samba</li>
+                        <li>NFS</li>
+                        <li>DLNA</li>
+                        <li>Multi-user support</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Development Support</h3>
+                    <ul class="features-list">
+                        <li>Node.js</li>
+                        <li>Python</li>
+                        <li>MQTT/HTTP</li>
+                        <li>Docker support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Future Roadmap</h2>
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <h3>Offline Capability</h3>
+                    <p>Full offline operation capability</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Multi-Agent Collaboration</h3>
+                    <p>Multi-agent collaboration support</p>
+                </div>
+                <div class="spec-card">
+                    <h3>System Deep Customization</h3>
+                    <p>Low-level system customization, kernel tuning</p>
+                </div>
+                <div class="spec-card">
+                    <h3>OpenClaw Integration</h3>
+                    <p>Integration as core system service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 IClawMini. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
