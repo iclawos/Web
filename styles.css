@@ -108,6 +108,83 @@ body {
     border-color: var(--text-primary);
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        transition: right 0.3s ease;
+        border-left: 1px solid var(--border);
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links a {
+        font-size: 18px;
+    }
+    
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+    
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -623,19 +700,106 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 48px;
+        font-size: 42px;
     }
     
     .hero-subtitle {
-        font-size: 22px;
+        font-size: 20px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    
+    .ai-animation {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 30px;
+    }
+    
+    .ai-glow {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .node {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .node-4 {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .page-header {
+        padding: 100px 0 40px;
     }
     
     .page-header h1 {
-        font-size: 40px;
+        font-size: 32px;
+    }
+    
+    .page-header p {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+    
+    .nav-container {
+        position: relative;
+    }
+    
+    .lang-btn {
+        position: absolute;
+        right: 50px;
     }
     
     .nav-links {
         display: none;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links.active {
+        display: flex;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        border-left: 1px solid var(--border);
+        z-index: 1000;
+    }
+    
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+    
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-links a {
+        font-size: 18px;
     }
     
     .interface-section,
@@ -647,6 +811,63 @@ body {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        padding: 0 20px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+    
+    .features {
+        padding: 60px 0;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .feature-card {
+        padding: 24px 20px;
+    }
+    
+    .content-section {
+        padding: 40px 0;
+    }
+    
+    .content-section h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+    
+    .spec-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .spec-card {
+        padding: 24px 20px;
+    }
+    
+    .interface-panel {
+        padding: 24px 20px;
+    }
+    
+    .contact-card {
+        padding: 24px 20px;
+    }
+    
+    .architecture-layer {
+        padding: 24px 20px;
+    }
+    
+    .footer {
+        padding: 30px 20px;
+    }
+    
+    .three-cols {
+        grid-template-columns: 1fr;
     }
 }
 

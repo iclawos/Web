@@ -1,4 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navOverlay = document.querySelector('.nav-overlay');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            if (navOverlay) {
+                navOverlay.classList.toggle('active');
+            }
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        if (navOverlay) {
+            navOverlay.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                navOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                if (navOverlay) {
+                    navOverlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
+            });
+        });
+    }
+    
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -17,10 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navMenuLinks = document.querySelectorAll('.nav-links a');
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
-    navLinks.forEach(link => {
+    navMenuLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
