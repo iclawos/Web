@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙虾智能体 - 吞噬银河</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #000; 
+            overflow: hidden; 
+        }
+        canvas { display: block; }
+        #startOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            cursor: pointer;
+        }
+        #startOverlay h1 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px #ff3333, 0 0 60px #ff0000;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        #startOverlay p {
+            font-size: 20px;
+            color: #888;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div id="startOverlay">
+        <h1>🦞 IClaw Eating Universe</h1>
+        <p>点击屏幕开始</p>
+    </div>
+    <canvas id="canvas"></canvas>
+
+    <script>
+        let audioStarted = false;
+        let audioContext, masterGain;
+
+        function initAudio() {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            masterGain = audioContext.createGain();
+            masterGain.gain.value = 0.3;
+            masterGain.connect(audioContext.destination);
+
+            const notes = [65.41, 82.41, 98.00, 130.81, 164.81, 196.00, 261.63, 329.63];
+            
+            function playPad(freq, delay) {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                const filter = audioContext.createBiquadFilter();
+                
+                osc.type = 'sine';
+                osc.frequency.value = freq;
+                
+                filter.type = 'lowpass';
+                filter.frequency.value = 800;
+                filter.Q.value = 1;
+                
+                gain.gain.setValueAtTime(0, audioContext.currentTime + delay);
+                gain.gain.linearRampToValueAtTime(0.15, audioContext.currentTime + delay + 2);
+                gain.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + delay + 6);
+                gain.gain.linearRampToValueAtTime(0, audioContext.currentTime + delay + 10);
+                
+                osc.connect(filter);
+                filter.connect(gain);
+                gain.connect(masterGain);
+                
+                osc.start(audioContext.currentTime + delay);
+                osc.stop(audioContext.currentTime + delay + 10);
+            }
+
+            function playBass(freq, delay) {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                
+                osc.type = 'sine';
+                osc.frequency.value = freq;
+                
+                gain.gain.setValueAtTime(0, audioContext.currentTime + delay);
+                gain.gain.linearRampToValueAtTime(0.25, audioContext.currentTime + delay + 0.1);
+                gain.gain.linearRampToValueAtTime(0.2, audioContext.currentTime + delay + 1);
+                gain.gain.linearRampToValueAtTime(0, audioContext.currentTime + delay + 4);
+                
+                osc.connect(gain);
+                gain.connect(masterGain);
+                
+                osc.start(audioContext.currentTime + delay);
+                osc.stop(audioContext.currentTime + delay + 4);
+            }
+
+            function playArp(note, delay, duration) {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                
+                osc.type = 'triangle';
+                osc.frequency.value = note;
+                
+                gain.gain.setValueAtTime(0, audioContext.currentTime + delay);
+                gain.gain.linearRampToValueAtTime(0.08, audioContext.currentTime + delay + 0.05);
+                gain.gain.linearRampToValueAtTime(0, audioContext.currentTime + delay + duration);
+                
+                osc.connect(gain);
+                gain.connect(masterGain);
+                
+                osc.start(audioContext.currentTime + delay);
+                osc.stop(audioContext.currentTime + delay + duration);
+            }
+
+            let time = 0;
+            setInterval(() => {
+                if (!audioStarted) return;
+                
+                const baseTime = time * 4;
+                
+                notes.forEach((note, i) => {
+                    playPad(note, baseTime + i * 0.5);
+                });
+                
+                playBass(32.70, baseTime);
+                playBass(65.41, baseTime + 2);
+                
+                for (let i = 0; i < 4; i++) {
+                    const arpNotes = [196.00, 246.94, 293.66, 329.63];
+                    arpNotes.forEach((note, j) => {
+                        playArp(note, baseTime + i * 0.5 + j * 0.12, 0.3);
+                    });
+                }
+                
+                time++;
+            }, 4000);
+
+            playPad(130.81, 0);
+            playBass(32.70, 0);
+            for (let i = 0; i < 4; i++) {
+                [196, 246, 293, 329].forEach((n, j) => playArp(n, i * 0.5 + j * 0.12, 0.3));
+            }
+        }
+
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let stars = [];
+        let lobsterPath = [];
+        let headX, headY, direction;
+        let targetX, targetY;
+        let frame = 0;
+
+        const STAR_COUNT = 400;
+        const EAT_DISTANCE = 35;
+        const BASE_SPEED = 2.5;
+        const SEGMENT_SPACING = 12;
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+
+        class Star {
+            constructor(index) { 
+                this.index = index;
+                this.reset(); 
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 5 + 2;
+                this.baseAlpha = Math.random() * 0.3 + 0.7;
+                this.twinkleSpeed = 0.04;
+                const distFromCenter = Math.sqrt(Math.pow(this.x - width/2, 2) + Math.pow(this.y - height/2, 2));
+                const maxDist = Math.sqrt(Math.pow(width/2, 2) + Math.pow(height/2, 2));
+                this.twinkleOffset = (distFromCenter / maxDist) * Math.PI * 2 + this.index * 0.1;
+                this.hue = Math.random() * 50 + 180;
+                this.color = `hsla(${this.hue}, 95%, ${75 + Math.random() * 15}%,`;
+                this.wavePhase = Math.random() * Math.PI * 2;
+            }
+
+            draw() {
+                const tw = Math.sin(frame * this.twinkleSpeed + this.twinkleOffset + this.wavePhase);
+                const tw2 = Math.sin(frame * this.twinkleSpeed * 0.5 + this.twinkleOffset * 0.5);
+                const brightness = tw * 0.35 + tw2 * 0.35 + 0.6;
+                const alpha = Math.min(1, this.baseAlpha * brightness);
+                
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + alpha + ')';
+                ctx.fill();
+                
+                if (this.size > 3) {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color + (alpha * 0.2) + ')';
+                    ctx.fill();
+                }
+            }
+        }
+
+        function initStars() {
+            stars = [];
+            for (let i = 0; i < STAR_COUNT; i++) stars.push(new Star(i));
+        }
+
+        function drawLobsterSVG(x, y, angle, scale, isHead) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(angle);
+            ctx.scale(scale, scale);
+
+            const time = frame * 0.1;
+            const clawWave = Math.sin(time) * 0.05;
+            const legWave = Math.sin(time * 1.5) * 0.1;
+            const clawOpen = Math.sin(frame * 0.08) * 0.4 + 0.3;
+
+            ctx.shadowColor = '#cc0000';
+            ctx.shadowBlur = 15;
+
+            for (let i = 4; i >= 0; i--) {
+                const segmentOffset = i * 12;
+                const segmentWidth = 25 - i * 2;
+                const segmentHeight = 18 - i * 1.5;
+                
+                const segGrad = ctx.createLinearGradient(-segmentOffset - segmentWidth, 0, -segmentOffset + segmentWidth, 0);
+                segGrad.addColorStop(0, '#cc2222');
+                segGrad.addColorStop(0.5, '#ee3333');
+                segGrad.addColorStop(1, '#aa1111');
+                
+                ctx.beginPath();
+                ctx.ellipse(-segmentOffset, 0, segmentWidth, segmentHeight, 0, 0, Math.PI * 2);
+                ctx.fillStyle = segGrad;
+                ctx.fill();
+                
+                ctx.strokeStyle = '#991111';
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+            }
+
+            for (let side = -1; side <= 1; side += 2) {
+                for (let leg = 0; leg < 3; leg++) {
+                    const legAngle = side * (0.6 + leg * 0.3) + legWave * (leg + 1) * 0.2;
+                    ctx.beginPath();
+                    ctx.moveTo(-15 - leg * 10, side * 12);
+                    ctx.quadraticCurveTo(
+                        -5 - leg * 8 + Math.sin(time * 2 + leg) * 3,
+                        side * (22 + leg * 8),
+                        5 - leg * 5,
+                        side * (32 + leg * 8)
+                    );
+                    ctx.strokeStyle = '#aa1111';
+                    ctx.lineWidth = 3;
+                    ctx.lineCap = 'round';
+                    ctx.stroke();
+                }
+            }
+
+            const tailGrad = ctx.createLinearGradient(0, -20, 0, 20);
+            tailGrad.addColorStop(0, '#dd2222');
+            tailGrad.addColorStop(0.5, '#bb1111');
+            tailGrad.addColorStop(1, '#991111');
+            
+            ctx.beginPath();
+            ctx.moveTo(-60, -25);
+            ctx.quadraticCurveTo(-75, -15, -70, 0);
+            ctx.quadraticCurveTo(-75, 15, -60, 25);
+            ctx.quadraticCurveTo(-65, 0, -60, -25);
+            ctx.fillStyle = tailGrad;
+            ctx.fill();
+
+            for (let fan = -2; fan <= 2; fan++) {
+                ctx.beginPath();
+                ctx.moveTo(-55, fan * 8);
+                ctx.quadraticCurveTo(-70 - Math.abs(fan) * 5, fan * 12, -80 - Math.abs(fan) * 3, fan * 15);
+                ctx.strokeStyle = '#aa1111';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+            }
+
+            if (isHead) {
+                const headGrad = ctx.createRadialGradient(15, -5, 0, 15, -5, 35);
+                headGrad.addColorStop(0, '#ff4444');
+                headGrad.addColorStop(0.7, '#dd2222');
+                headGrad.addColorStop(1, '#aa1111');
+                
+                ctx.beginPath();
+                ctx.ellipse(15, 0, 28, 20, 0, 0, Math.PI * 2);
+                ctx.fillStyle = headGrad;
+                ctx.fill();
+
+                ctx.fillStyle = '#111';
+                ctx.beginPath();
+                ctx.arc(25, -6, 5, 0, Math.PI * 2);
+                ctx.arc(25, 6, 5, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.fillStyle = '#fff';
+                ctx.beginPath();
+                ctx.arc(26, -7, 1.5, 0, Math.PI * 2);
+                ctx.arc(26, 5, 1.5, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let side = -1; side <= 1; side += 2) {
+                    const clawBaseX = 40;
+                    const clawBaseY = side * 18;
+                    const clawAngle = side * clawOpen * 0.8;
+                    
+                    ctx.strokeStyle = '#991111';
+                    ctx.fillStyle = '#cc2222';
+                    ctx.lineWidth = 3;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(15, side * 20);
+                    ctx.quadraticCurveTo(25 + clawWave * 5, side * 35, clawBaseX, clawBaseY);
+                    ctx.stroke();
+                    
+                    ctx.fillStyle = '#dd3333';
+                    ctx.beginPath();
+                    ctx.ellipse(clawBaseX, clawBaseY, 14, 10, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    ctx.save();
+                    ctx.translate(clawBaseX, clawBaseY);
+                    
+                    ctx.save();
+                    ctx.rotate(clawAngle);
+                    ctx.fillStyle = '#cc2222';
+                    ctx.beginPath();
+                    ctx.moveTo(10, 0);
+                    ctx.quadraticCurveTo(25, -8, 45, -12);
+                    ctx.lineTo(50, -8);
+                    ctx.quadraticCurveTo(35, 0, 15, 2);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    ctx.fillStyle = '#aa1111';
+                    for (let t = 0; t < 4; t++) {
+                        ctx.beginPath();
+                        ctx.moveTo(25 + t * 7, -5);
+                        ctx.lineTo(22 + t * 8, -15 - t * 2);
+                        ctx.lineTo(28 + t * 7, -4);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                    
+                    ctx.save();
+                    ctx.rotate(-clawAngle);
+                    ctx.fillStyle = '#cc2222';
+                    ctx.beginPath();
+                    ctx.moveTo(10, 0);
+                    ctx.quadraticCurveTo(25, 8, 45, 12);
+                    ctx.lineTo(50, 8);
+                    ctx.quadraticCurveTo(35, 0, 15, -2);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    ctx.fillStyle = '#aa1111';
+                    for (let t = 0; t < 4; t++) {
+                        ctx.beginPath();
+                        ctx.moveTo(25 + t * 7, 5);
+                        ctx.lineTo(22 + t * 8, 15 + t * 2);
+                        ctx.lineTo(28 + t * 7, 4);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                    
+                    ctx.restore();
+                }
+
+                ctx.strokeStyle = '#991111';
+                ctx.lineWidth = 1.5;
+                
+                ctx.beginPath();
+                ctx.moveTo(20, -8);
+                ctx.quadraticCurveTo(40, -25 + Math.sin(time) * 5, 55, -35);
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(22, -5);
+                ctx.quadraticCurveTo(45, -20 + Math.sin(time) * 5, 60, -30);
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(20, 8);
+                ctx.quadraticCurveTo(40, 25 + Math.sin(time) * 5, 55, 35);
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(22, 5);
+                ctx.quadraticCurveTo(45, 20 + Math.sin(time) * 5, 60, 30);
+                ctx.stroke();
+            }
+
+            ctx.restore();
+        }
+
+        function initLobster() {
+            headX = width / 2;
+            headY = height / 2;
+            direction = Math.random() * Math.PI * 2;
+            targetX = Math.random() * (width - 200) + 100;
+            targetY = Math.random() * (height - 200) + 100;
+
+            lobsterPath = [];
+            const segments = 8 + Math.floor(Math.random() * 5);
+            for (let i = 0; i < segments; i++) {
+                lobsterPath.push({
+                    x: headX - Math.cos(direction) * i * SEGMENT_SPACING,
+                    y: headY - Math.sin(direction) * i * SEGMENT_SPACING,
+                    angle: direction
+                });
+            }
+        }
+
+        function updateLobster() {
+            const dx = targetX - headX;
+            const dy = targetY - headY;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 80) {
+                targetX = Math.random() * (width - 150) + 75;
+                targetY = Math.random() * (height - 150) + 75;
+            }
+
+            const targetAngle = Math.atan2(dy, dx);
+            let angleDiff = targetAngle - direction;
+            while (angleDiff > Math.PI) angleDiff -= Math.PI * 2;
+            while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
+            direction += angleDiff * 0.08;
+
+            const speed = BASE_SPEED + (lobsterPath.length - 8) * 0.05;
+            headX += Math.cos(direction) * speed;
+            headY += Math.sin(direction) * speed;
+
+            const margin = 60;
+            if (headX < margin) targetX = width - margin;
+            if (headX > width - margin) targetX = margin;
+            if (headY < margin) targetY = height - margin;
+            if (headY > height - margin) targetY = margin;
+
+            lobsterPath.unshift({ x: headX, y: headY, angle: direction });
+
+            const targetLength = 8 + Math.floor((400 - stars.length) / 20);
+            while (lobsterPath.length > Math.min(60, targetLength)) {
+                lobsterPath.pop();
+            }
+
+            stars.forEach(star => {
+                const sdx = star.x - headX;
+                const sdy = star.y - headY;
+                const sdist = Math.sqrt(sdx * sdx + sdy * sdy);
+
+                if (sdist < EAT_DISTANCE) {
+                    star.reset();
+                }
+            });
+        }
+
+        function drawGalaxy() {
+            const cx = width / 2, cy = height / 2;
+            const maxR = Math.max(width, height) * 0.8;
+            const rotation = frame * 0.0003;
+            
+            const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, maxR);
+            grad.addColorStop(0, 'rgba(40, 15, 60, 0.5)');
+            grad.addColorStop(0.2, 'rgba(20, 8, 40, 0.6)');
+            grad.addColorStop(0.5, 'rgba(10, 5, 25, 0.7)');
+            grad.addColorStop(0.8, 'rgba(5, 3, 15, 0.85)');
+            grad.addColorStop(1, 'rgba(0, 0, 0, 1)');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(rotation);
+            
+            for (let arm = 0; arm < 5; arm++) {
+                const armOffset = arm * Math.PI * 2 / 5;
+                ctx.beginPath();
+                for (let r = 0; r < maxR * 0.6; r += 2) {
+                    const spiralAngle = r * 0.012 + armOffset;
+                    const spread = r * 0.4;
+                    const x = Math.cos(spiralAngle) * r;
+                    const y = Math.sin(spiralAngle) * r * 0.35 + Math.sin(spiralAngle * 2) * spread * 0.08;
+                    if (r === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                }
+                const armHue = 250 + arm * 15;
+                ctx.strokeStyle = `hsla(${armHue}, 70%, 30%, 0.12)`;
+                ctx.lineWidth = 60;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+                
+                ctx.strokeStyle = `hsla(${armHue}, 80%, 50%, 0.06)`;
+                ctx.lineWidth = 30;
+                ctx.stroke();
+            }
+            ctx.restore();
+
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(rotation * 0.7);
+            
+            const coreGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, 80);
+            coreGrad.addColorStop(0, 'rgba(255, 240, 200, 0.3)');
+            coreGrad.addColorStop(0.3, 'rgba(255, 200, 150, 0.15)');
+            coreGrad.addColorStop(0.6, 'rgba(200, 150, 100, 0.05)');
+            coreGrad.addColorStop(1, 'rgba(100, 80, 60, 0)');
+            ctx.fillStyle = coreGrad;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 100, 60, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+
+            stars.forEach((star, idx) => {
+                const dx = star.x - cx;
+                const dy = star.y - cy;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const maxDist = Math.sqrt(cx * cx + cy * cy);
+                const rotationSpeed = (dist / maxDist) * 0.0004 + 0.0001;
+                const angle = Math.atan2(dy, dx) + rotation * rotationSpeed / 0.0003;
+                const newX = cx + Math.cos(angle) * dist;
+                const newY = cy + Math.sin(angle) * dist;
+                
+                const tw = Math.sin(frame * star.twinkleSpeed + star.twinkleOffset + star.wavePhase);
+                const tw2 = Math.sin(frame * star.twinkleSpeed * 0.5 + star.twinkleOffset * 0.5);
+                const brightness = tw * 0.35 + tw2 * 0.35 + 0.6;
+                const alpha = Math.min(1, star.baseAlpha * brightness);
+                
+                ctx.beginPath();
+                ctx.arc(newX, newY, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = star.color + alpha + ')';
+                ctx.fill();
+                
+                if (star.size > 3) {
+                    ctx.beginPath();
+                    ctx.arc(newX, newY, star.size * 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = star.color + (alpha * 0.2) + ')';
+                    ctx.fill();
+                }
+            });
+        }
+
+        function animate() {
+            frame++;
+            ctx.clearRect(0, 0, width, height);
+
+            drawGalaxy();
+
+            ctx.save();
+            const text = 'IClaw Eating Universe';
+            const fontSize = Math.min(width * 0.06, 72);
+            ctx.font = `bold ${fontSize}px 'Arial Black', 'Helvetica Neue', sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            const textX = width / 2;
+            const textY = height - fontSize * 1.2;
+            
+            const glowPhase = frame * 0.05;
+            const glowIntensity = Math.sin(glowPhase) * 0.5 + 0.5;
+            
+            for (let i = 5; i >= 0; i--) {
+                const blur = i * 8;
+                const alpha = 0.15 - i * 0.02;
+                ctx.fillStyle = `rgba(255, 50, 50, ${alpha})`;
+                ctx.shadowColor = '#ff3333';
+                ctx.shadowBlur = blur;
+                ctx.fillText(text, textX, textY);
+            }
+            
+            const grad = ctx.createLinearGradient(textX - fontSize * 3, textY, textX + fontSize * 3, textY);
+            grad.addColorStop(0, '#ffffff');
+            grad.addColorStop(0.3, '#ff6666');
+            grad.addColorStop(0.5, '#ff3333');
+            grad.addColorStop(0.7, '#ff6666');
+            grad.addColorStop(1, '#ffffff');
+            ctx.fillStyle = grad;
+            ctx.shadowColor = '#ff0000';
+            ctx.shadowBlur = 20 + glowIntensity * 15;
+            ctx.fillText(text, textX, textY);
+            
+            ctx.strokeStyle = `rgba(255, 200, 200, ${0.3 + glowIntensity * 0.3})`;
+            ctx.lineWidth = 1.5;
+            ctx.shadowBlur = 10;
+            ctx.strokeText(text, textX, textY);
+            
+            const letterSpacing = Math.sin(frame * 0.02) * 3;
+            const letters = text.split('');
+            let offsetX = -ctx.measureText(text).width / 2;
+            ctx.font = `bold ${fontSize * 0.15}px Arial`;
+            letters.forEach((letter, idx) => {
+                if (letter !== ' ') {
+                    const yOffset = Math.sin(frame * 0.08 + idx * 0.5) * (3 + glowIntensity * 5);
+                    ctx.fillStyle = `rgba(255, 255, 255, ${0.7 + glowIntensity * 0.3})`;
+                    ctx.fillText(letter, textX + offsetX, textY + yOffset);
+                }
+                offsetX += ctx.measureText(letter).width + letterSpacing;
+            });
+            
+            ctx.restore();
+
+            updateLobster();
+
+            for (let i = lobsterPath.length - 1; i >= 0; i--) {
+                const seg = lobsterPath[i];
+                const scale = 1.2 - (i / lobsterPath.length) * 0.6;
+                drawLobsterSVG(seg.x, seg.y, seg.angle, scale, i === 0);
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        function startExperience() {
+            if (audioStarted) return;
+            audioStarted = true;
+            
+            document.getElementById('startOverlay').style.display = 'none';
+            
+            initAudio();
+            animate();
+        }
+
+        document.getElementById('startOverlay').addEventListener('click', startExperience);
+
+        window.addEventListener('resize', () => { resize(); initStars(); });
+        resize();
+        initStars();
+        initLobster();
+        
+        drawGalaxy();
+        stars.forEach(s => s.draw());
+    </script>
+</body>
+</html>
