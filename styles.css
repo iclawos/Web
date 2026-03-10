@@ -668,3 +668,84 @@ body {
 .stagger-2 { animation-delay: 0.4s; }
 .stagger-3 { animation-delay: 0.6s; }
 .stagger-4 { animation-delay: 0.8s; }
+
+/* Series Comparison */
+.series-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+
+.three-cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .three-cols {
+        grid-template-columns: 1fr;
+    }
+}
+
+.series-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.series-position {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.series-specs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.series-specs li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+    display: block;
+}
+
+.series-specs li:last-child {
+    border-bottom: none;
+}
+
+.series-specs strong {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.series-target {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.series-pro {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(41, 151, 255, 0.15);
+}
+
+.series-ultra {
+    border-color: #9333ea;
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.15);
+}
+
+.ai-note {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    opacity: 0.8;
+}

@@ -29,45 +29,125 @@
 
     <section class="content-section">
         <div class="container">
-            <h2>核心硬件 (RK3588 版本)</h2>
-            <div class="spec-grid">
-                <div class="spec-card">
-                    <h3>处理器</h3>
-                    <ul>
-                        <li>SoC <span>Rockchip RK3588</span></li>
-                        <li>CPU <span>八核 (4×Cortex-A76 @2.4GHz + 4×Cortex-A55 @1.8GHz)</span></li>
-                        <li>NPU <span>6 TOPS @INT8</span></li>
-                        <li>NPU支持 <span>INT4/INT8/INT16/FP16 混合精度</span></li>
-                        <li>GPU <span>Mali-G610 MP4</span></li>
+            <h2>IClawMINI 系列对比</h2>
+            <div class="series-intro">
+                <p>三款产品层级，满足不同需求：从基础家庭云存储到高性能本地大模型推理。</p>
+            </div>
+            <div class="spec-grid three-cols">
+                <div class="spec-card series-card">
+                    <h3>IClawMINI</h3>
+                    <div class="series-position">纯 OpenClaw 调度器 + 家庭云存储</div>
+                    <ul class="series-specs">
+                        <li><strong>SoC:</strong> Rockchip RK3568</li>
+                        <li><strong>CPU:</strong> 四核 Cortex-A55 @ 2.0GHz</li>
+                        <li><strong>NPU:</strong> 1 TOPS (可选关闭)</li>
+                        <li><strong>内存:</strong> 4GB LPDDR4</li>
+                        <li><strong>存储:</strong> 32GB eMMC 5.1 + 双 M.2 NVMe</li>
+                        <li><strong>网络:</strong> 双千兆网口, Wi-Fi 5, 蓝牙 5.0</li>
+                        <li><strong>视频:</strong> HDMI 2.0 (4K@60fps)</li>
+                        <li><strong>功耗:</strong> 4W 待机, 12W 满载</li>
+                        <li><strong>散热:</strong> 纯被动散热</li>
+                        <li><strong>尺寸:</strong> 12.7cm × 12.7cm × 4.97cm</li>
                     </ul>
+                    <div class="series-target">
+                        <strong>目标用户:</strong> 只需云存储 + 基础自动化，无 AI 需求
+                    </div>
                 </div>
-                <div class="spec-card">
-                    <h3>内存与存储</h3>
-                    <ul>
-                        <li>内存 <span>4GB/8GB/16GB LPDDR4X/LPDDR5</span></li>
-                        <li>推荐 <span>AI 工作负载推荐 8GB/16GB</span></li>
-                        <li>存储 <span>64GB eMMC 5.1</span></li>
-                        <li>扩展 <span>双 M.2 NVMe 插槽</span></li>
-                        <li>接口 <span>PCIe 3.0 x1/x2 可配置</span></li>
+                <div class="spec-card series-card series-pro">
+                    <h3>IClawMINI Pro</h3>
+                    <div class="series-position">本地小模型推理 (≤2B) + 家庭云存储</div>
+                    <ul class="series-specs">
+                        <li><strong>SoC:</strong> Rockchip RK3576</li>
+                        <li><strong>CPU:</strong> 4×Cortex-A72 @ 2.2GHz + 4×Cortex-A53 @ 1.8GHz</li>
+                        <li><strong>NPU:</strong> 6 TOPS @INT8</li>
+                        <li><strong>内存:</strong> 8GB LPDDR4X/LPDDR5</li>
+                        <li><strong>存储:</strong> 64GB eMMC 5.1 + 双 M.2 NVMe</li>
+                        <li><strong>网络:</strong> 双千兆网口, Wi-Fi 6, 蓝牙 5.2</li>
+                        <li><strong>视频:</strong> HDMI 2.1 (4K@120fps / 8K@30fps)</li>
+                        <li><strong>功耗:</strong> 5W 待机, 15-20W 满载</li>
+                        <li><strong>散热:</strong> 被动 + 智能静音风扇</li>
+                        <li><strong>尺寸:</strong> 12.7cm × 12.7cm × 4.97cm</li>
                     </ul>
+                    <div class="series-target">
+                        <strong>目标用户:</strong> 本地语音助手、轻量 AI、预算适中
+                    </div>
                 </div>
-                <div class="spec-card">
-                    <h3>视频能力</h3>
-                    <ul>
-                        <li>解码 <span>8K@60fps</span></li>
-                        <li>编码 <span>8K@30fps</span></li>
-                        <li>输出 <span>HDMI 2.1 (8K@60fps with HDR)</span></li>
-                        <li>视频分析 <span>最多 32 通道 @1080p</span></li>
+                <div class="spec-card series-card series-ultra">
+                    <h3>IClawMINI Ultra</h3>
+                    <div class="series-position">高性能本地大模型 (7B-30B) + 家庭云存储</div>
+                    <ul class="series-specs">
+                        <li><strong>SoC:</strong> AMD Ryzen AI Max+ 395 / Intel Core Ultra</li>
+                        <li><strong>CPU:</strong> 16核32线程 Zen 5 (AMD) / 高性能混合架构 (Intel)</li>
+                        <li><strong>NPU:</strong> AMD XDNA 2: 50 TOPS / Intel NPU: 10-40 TOPS</li>
+                        <li><strong>内存:</strong> 32GB/64GB LPDDR5/DDR5 (最高 128GB)</li>
+                        <li><strong>存储:</strong> 可选 eMMC + 双 M.2 NVMe (PCIe 4.0, RAID)</li>
+                        <li><strong>网络:</strong> 双 2.5GbE, Wi-Fi 7, 蓝牙 5.4</li>
+                        <li><strong>视频:</strong> HDMI 2.1 / DP 2.0, 多屏显示</li>
+                        <li><strong>功耗:</strong> 15W 待机, 65W 满载</li>
+                        <li><strong>散热:</strong> 热管 + 主动风扇</li>
+                        <li><strong>尺寸:</strong> 15cm × 15cm × 5cm</li>
                     </ul>
+                    <div class="series-target">
+                        <strong>目标用户:</strong> 高性能本地大模型、旗舰 AI 体验
+                    </div>
                 </div>
-                <div class="spec-card">
-                    <h3>网络连接</h3>
-                    <ul>
-                        <li>Wi-Fi <span>Wi-Fi 6 双频 (可选 Wi-Fi 6E)</span></li>
-                        <li>蓝牙 <span>Bluetooth 5.2 + BLE</span></li>
-                        <li>以太网 <span>双 2.5 千兆网口</span></li>
-                        <li>网口支持 <span>链路聚合</span></li>
-                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>接口详情 - IClawMINI / IClawMINI Pro</h2>
+            <div class="interface-section">
+                <div class="interface-panel">
+                    <h3>前面板</h3>
+                    <div class="interface-items">
+                        <div class="interface-item">2× USB-C (USB 3.0 / USB4)</div>
+                        <div class="interface-item">3.5mm 音频接口</div>
+                        <div class="interface-item">电源按钮</div>
+                        <div class="interface-item">状态指示灯</div>
+                    </div>
+                </div>
+                <div class="interface-panel">
+                    <h3>后面板</h3>
+                    <div class="interface-items">
+                        <div class="interface-item">2× 千兆网口 / 2.5GbE 网口</div>
+                        <div class="interface-item">2× USB 3.0 / USB 3.2 Gen2</div>
+                        <div class="interface-item">1× USB OTG</div>
+                        <div class="interface-item">HDMI 2.0 / 2.1</div>
+                        <div class="interface-item">GPIO 扩展接口 (I2C/SPI/UART)</div>
+                        <div class="interface-item">12V DC 电源输入</div>
+                        <div class="interface-item">可选 MIPI CSI (Pro 版本)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>接口详情 - IClawMINI Ultra</h2>
+            <div class="interface-section">
+                <div class="interface-panel">
+                    <h3>前面板</h3>
+                    <div class="interface-items">
+                        <div class="interface-item">2× USB-C (USB4)</div>
+                        <div class="interface-item">3.5mm 音频接口</div>
+                        <div class="interface-item">电源按钮</div>
+                        <div class="interface-item">状态指示灯</div>
+                    </div>
+                </div>
+                <div class="interface-panel">
+                    <h3>后面板</h3>
+                    <div class="interface-items">
+                        <div class="interface-item">2× 2.5GbE 网口</div>
+                        <div class="interface-item">2× USB 3.2 Gen2</div>
+                        <div class="interface-item">2× USB 2.0</div>
+                        <div class="interface-item">HDMI 2.1</div>
+                        <div class="interface-item">DP 2.0</div>
+                        <div class="interface-item">GPIO (可选)</div>
+                        <div class="interface-item">12V / 19V DC 电源输入</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,39 +160,19 @@
                 <div class="spec-card">
                     <h3>尺寸与重量</h3>
                     <ul>
-                        <li>尺寸 <span>12.7cm × 12.7cm × 4.97cm</span></li>
+                        <li>尺寸 (MINI/Pro) <span>12.7cm × 12.7cm × 4.97cm</span></li>
+                        <li>尺寸 (Ultra) <span>15cm × 15cm × 5cm</span></li>
                         <li>重量 <span>约 0.7kg (不含硬盘)</span></li>
-                        <li>材质 <span>航空级铝合金</span></li>
-                        <li>设计 <span>极致小巧</span></li>
-                    </ul>
-                </div>
-                <div class="spec-card">
-                    <h3>电源与功耗</h3>
-                    <ul>
-                        <li>输入 <span>12V DC, 5A</span></li>
-                        <li>适配器 <span>60W+</span></li>
-                        <li>待机功耗 <span>约 8W</span></li>
-                        <li>典型功耗 <span>约 25W</span></li>
-                        <li>最大功耗 <span>约 35W (AI/GPU 满载)</span></li>
+                        <li>材质 <span>航空级铝合金 (6063)</span></li>
                     </ul>
                 </div>
                 <div class="spec-card">
                     <h3>散热系统</h3>
                     <ul>
-                        <li>散热方式 <span>被动散热 + 智能风扇</span></li>
-                        <li>风扇控制 <span>PID 智能温控</span></li>
-                        <li>外壳 <span>铝合金机箱</span></li>
+                        <li>MINI <span>纯被动散热 (航空铝)</span></li>
+                        <li>Pro <span>被动 + 智能静音风扇</span></li>
+                        <li>Ultra <span>热管 + 高性能风扇</span></li>
                         <li>工作温度 <span>0°C ~ 50°C</span></li>
-                        <li>工业选配 <span>可选，更宽温度范围</span></li>
-                    </ul>
-                </div>
-                <div class="spec-card">
-                    <h3>接口布局</h3>
-                    <ul>
-                        <li>前面板 <span>2×USB-C, 音频接口</span></li>
-                        <li>后面板 <span>双2.5G网口, USB 3.1, HDMI 2.1</span></li>
-                        <li>扩展 <span>GPIO 接口 (I2C/SPI/UART/PWM)</span></li>
-                        <li>电源 <span>12V DC 输入</span></li>
                     </ul>
                 </div>
             </div>
@@ -121,56 +181,22 @@
 
     <section class="content-section">
         <div class="container">
-            <h2>接口详情</h2>
-            <div class="interface-section">
-                <div class="interface-panel">
-                    <h3>前面板</h3>
-                    <div class="interface-items">
-                        <div class="interface-item">2× USB-C (USB 3.1 Gen1, 5Gbps)</div>
-                        <div class="interface-item">其中一口支持 DP Alt Mode 视频输出</div>
-                        <div class="interface-item">3.5mm 音频接口</div>
-                        <div class="interface-item">电源按钮</div>
-                        <div class="interface-item">状态指示灯</div>
-                </div>
-                    </div>
-                <div class="interface-panel">
-                    <h3>后面板</h3>
-                    <div class="interface-items">
-                        <div class="interface-item">2× 2.5 千兆网口 (支持聚合)</div>
-                        <div class="interface-item">2× USB 3.1 Gen1 Type-A</div>
-                        <div class="interface-item">1× USB 3.1 Gen1 Type-C OTG</div>
-                        <div class="interface-item">HDMI 2.1 (8K@60fps with HDR)</div>
-                        <div class="interface-item">GPIO 扩展接口 (I2C/SPI/UART/PWM)</div>
-                        <div class="interface-item">12V DC 电源</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <div class="container">
-            <h2>应用场景</h2>
-            <div class="spec-grid">
+            <h2>AI 能力对比</h2>
+            <div class="spec-grid three-cols">
                 <div class="spec-card">
-                    <h3>桌面 AI 助手</h3>
-                    <p>支持语音交互和本地 LLM 推理的桌面 AI 自动化助手</p>
+                    <h3>IClawMINI</h3>
+                    <p>不支持本地模型运行</p>
+                    <p class="ai-note">纯云存储 + 调度器定位</p>
                 </div>
                 <div class="spec-card">
-                    <h3>家庭存储中心</h3>
-                    <p>高性能家庭 NAS/云存储，媒体流、备份和 8K 视频转码</p>
+                    <h3>IClawMINI Pro</h3>
+                    <p>流畅运行 2B 参数模型</p>
+                    <p class="ai-note">实测: Qwen2-1.5B, Phi-2 @ 约 8-10 tokens/秒</p>
                 </div>
                 <div class="spec-card">
-                    <h3>软路由/网关</h3>
-                    <p>配备 2.5GbE 端口和高级网络服务的软路由和网关</p>
-                </div>
-                <div class="spec-card">
-                    <h3>边缘计算网关</h3>
-                    <p>支持最多 32 通道 @1080p 视频分析的 IoT 网关</p>
-                </div>
-                <div class="spec-card">
-                    <h3>开发平台</h3>
-                    <p>RK3588 评估和原型设计的嵌入式开发平台</p>
+                    <h3>IClawMINI Ultra</h3>
+                    <p>7B-13B 量化模型，最高可达 70B</p>
+                    <p class="ai-note">50TOPS NPU + 128GB 统一内存</p>
                 </div>
             </div>
         </div>

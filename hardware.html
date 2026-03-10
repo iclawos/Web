@@ -29,45 +29,125 @@
 
     <section class="content-section">
         <div class="container">
-            <h2>Core Hardware (RK3588 Version)</h2>
-            <div class="spec-grid">
-                <div class="spec-card">
-                    <h3>Processor</h3>
-                    <ul>
-                        <li>SoC <span>Rockchip RK3588</span></li>
-                        <li>CPU <span>Octa-core (4×Cortex-A76 @2.4GHz + 4×Cortex-A55 @1.8GHz)</span></li>
-                        <li>NPU <span>6 TOPS @INT8</span></li>
-                        <li>NPU Support <span>INT4/INT8/INT16/FP16 mixed precision</span></li>
-                        <li>GPU <span>Mali-G610 MP4</span></li>
+            <h2>IClawMINI Series Comparison</h2>
+            <div class="series-intro">
+                <p>Three product tiers to meet different needs: from basic home cloud storage to high-performance local large model inference.</p>
+            </div>
+            <div class="spec-grid three-cols">
+                <div class="spec-card series-card">
+                    <h3>IClawMINI</h3>
+                    <div class="series-position">Pure OpenClaw Scheduler + Home Cloud Storage</div>
+                    <ul class="series-specs">
+                        <li><strong>SoC:</strong> Rockchip RK3568</li>
+                        <li><strong>CPU:</strong> Quad-core Cortex-A55 @ 2.0GHz</li>
+                        <li><strong>NPU:</strong> 1 TOPS (optional disabled)</li>
+                        <li><strong>Memory:</strong> 4GB LPDDR4</li>
+                        <li><strong>Storage:</strong> 32GB eMMC 5.1 + Dual M.2 NVMe</li>
+                        <li><strong>Network:</strong> Dual Gigabit Ethernet, Wi-Fi 5, BT 5.0</li>
+                        <li><strong>Video:</strong> HDMI 2.0 (4K@60fps)</li>
+                        <li><strong>Power:</strong> 4W idle, 12W full load</li>
+                        <li><strong>Cooling:</strong> Fully passive</li>
+                        <li><strong>Size:</strong> 12.7cm × 12.7cm × 4.97cm</li>
                     </ul>
+                    <div class="series-target">
+                        <strong>Target:</strong> Home cloud storage + basic automation, no AI requirements
+                    </div>
                 </div>
-                <div class="spec-card">
-                    <h3>Memory & Storage</h3>
-                    <ul>
-                        <li>Memory <span>4GB/8GB/16GB LPDDR4X/LPDDR5</span></li>
-                        <li>Recommended <span>8GB/16GB for AI workloads</span></li>
-                        <li>Storage <span>64GB eMMC 5.1</span></li>
-                        <li>Expansion <span>Dual M.2 NVMe slots</span></li>
-                        <li>Interface <span>PCIe 3.0 x1/x2 configurable</span></li>
+                <div class="spec-card series-card series-pro">
+                    <h3>IClawMINI Pro</h3>
+                    <div class="series-position">Local Small Model Inference (≤2B) + Home Cloud Storage</div>
+                    <ul class="series-specs">
+                        <li><strong>SoC:</strong> Rockchip RK3576</li>
+                        <li><strong>CPU:</strong> 4×Cortex-A72 @ 2.2GHz + 4×Cortex-A53 @ 1.8GHz</li>
+                        <li><strong>NPU:</strong> 6 TOPS @INT8</li>
+                        <li><strong>Memory:</strong> 8GB LPDDR4X/LPDDR5</li>
+                        <li><strong>Storage:</strong> 64GB eMMC 5.1 + Dual M.2 NVMe</li>
+                        <li><strong>Network:</strong> Dual Gigabit Ethernet, Wi-Fi 6, BT 5.2</li>
+                        <li><strong>Video:</strong> HDMI 2.1 (4K@120fps / 8K@30fps)</li>
+                        <li><strong>Power:</strong> 5W idle, 15-20W full load</li>
+                        <li><strong>Cooling:</strong> Passive + intelligent fan</li>
+                        <li><strong>Size:</strong> 12.7cm × 12.7cm × 4.97cm</li>
                     </ul>
+                    <div class="series-target">
+                        <strong>Target:</strong> Local voice assistant, lightweight AI, moderate budget
+                    </div>
                 </div>
-                <div class="spec-card">
-                    <h3>Video Capabilities</h3>
-                    <ul>
-                        <li>Decoding <span>8K@60fps</span></li>
-                        <li>Encoding <span>8K@30fps</span></li>
-                        <li>Output <span>HDMI 2.1 (8K@60fps with HDR)</span></li>
-                        <li>Video Analytics <span>Up to 32 channels @1080p</span></li>
+                <div class="spec-card series-card series-ultra">
+                    <h3>IClawMINI Ultra</h3>
+                    <div class="series-position">High-Performance Local Large Model (7B-30B) + Home Cloud Storage</div>
+                    <ul class="series-specs">
+                        <li><strong>SoC:</strong> AMD Ryzen AI Max+ 395 / Intel Core Ultra</li>
+                        <li><strong>CPU:</strong> 16-core 32-thread Zen 5 (AMD) / High-performance hybrid (Intel)</li>
+                        <li><strong>NPU:</strong> AMD XDNA 2: 50 TOPS / Intel NPU: 10-40 TOPS</li>
+                        <li><strong>Memory:</strong> 32GB/64GB LPDDR5/DDR5 (Up to 128GB)</li>
+                        <li><strong>Storage:</strong> Optional eMMC + Dual M.2 NVMe (PCIe 4.0, RAID)</li>
+                        <li><strong>Network:</strong> Dual 2.5GbE, Wi-Fi 7, BT 5.4</li>
+                        <li><strong>Video:</strong> HDMI 2.1 / DP 2.0, multi-display</li>
+                        <li><strong>Power:</strong> 15W idle, 65W full load</li>
+                        <li><strong>Cooling:</strong> Heat pipe + active fan</li>
+                        <li><strong>Size:</strong> 15cm × 15cm × 5cm</li>
                     </ul>
+                    <div class="series-target">
+                        <strong>Target:</strong> High-performance local large models, flagship AI experience
+                    </div>
                 </div>
-                <div class="spec-card">
-                    <h3>Network Connectivity</h3>
-                    <ul>
-                        <li>Wi-Fi <span>Wi-Fi 6 dual-band (optional Wi-Fi 6E)</span></li>
-                        <li>Bluetooth <span>Bluetooth 5.2 + BLE</span></li>
-                        <li>Ethernet <span>Dual 2.5GbE ports</span></li>
-                        <li>Port Features <span>Link aggregation support</span></li>
-                    </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Interface Details - IClawMINI / IClawMINI Pro</h2>
+            <div class="interface-section">
+                <div class="interface-panel">
+                    <h3>Front Panel</h3>
+                    <div class="interface-items">
+                        <div class="interface-item">2× USB-C (USB 3.0 / USB4)</div>
+                        <div class="interface-item">3.5mm audio combo jack</div>
+                        <div class="interface-item">Power button</div>
+                        <div class="interface-item">Status LEDs</div>
+                    </div>
+                </div>
+                <div class="interface-panel">
+                    <h3>Rear Panel</h3>
+                    <div class="interface-items">
+                        <div class="interface-item">2× Gigabit Ethernet / 2.5GbE ports</div>
+                        <div class="interface-item">2× USB 3.0 / USB 3.2 Gen2</div>
+                        <div class="interface-item">1× USB OTG</div>
+                        <div class="interface-item">HDMI 2.0 / 2.1</div>
+                        <div class="interface-item">GPIO expansion header (I2C/SPI/UART)</div>
+                        <div class="interface-item">12V DC power input</div>
+                        <div class="interface-item">Optional MIPI CSI (Pro version)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Interface Details - IClawMINI Ultra</h2>
+            <div class="interface-section">
+                <div class="interface-panel">
+                    <h3>Front Panel</h3>
+                    <div class="interface-items">
+                        <div class="interface-item">2× USB-C (USB4)</div>
+                        <div class="interface-item">3.5mm audio combo jack</div>
+                        <div class="interface-item">Power button</div>
+                        <div class="interface-item">Status LEDs</div>
+                    </div>
+                </div>
+                <div class="interface-panel">
+                    <h3>Rear Panel</h3>
+                    <div class="interface-items">
+                        <div class="interface-item">2× 2.5GbE ports</div>
+                        <div class="interface-item">2× USB 3.2 Gen2</div>
+                        <div class="interface-item">2× USB 2.0</div>
+                        <div class="interface-item">HDMI 2.1</div>
+                        <div class="interface-item">DP 2.0</div>
+                        <div class="interface-item">GPIO (optional)</div>
+                        <div class="interface-item">12V / 19V DC power input</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,39 +160,19 @@
                 <div class="spec-card">
                     <h3>Dimensions & Weight</h3>
                     <ul>
-                        <li>Size <span>12.7cm × 12.7cm × 4.97cm</span></li>
+                        <li>Size (MINI/Pro) <span>12.7cm × 12.7cm × 4.97cm</span></li>
+                        <li>Size (Ultra) <span>15cm × 15cm × 5cm</span></li>
                         <li>Weight <span>~0.7kg (without drives)</span></li>
-                        <li>Material <span>Aviation-grade aluminum</span></li>
-                        <li>Design <span>Ultra-compact</span></li>
-                    </ul>
-                </div>
-                <div class="spec-card">
-                    <h3>Power & Consumption</h3>
-                    <ul>
-                        <li>Input <span>12V DC, 5A</span></li>
-                        <li>Adapter <span>60W+</span></li>
-                        <li>Idle Power <span>~8W</span></li>
-                        <li>Typical Power <span>~25W</span></li>
-                        <li>Max Power <span>~35W (AI/GPU stress)</span></li>
+                        <li>Material <span>Aviation-grade aluminum (6063)</span></li>
                     </ul>
                 </div>
                 <div class="spec-card">
                     <h3>Thermal System</h3>
                     <ul>
-                        <li>Cooling <span>Passive + smart fan</span></li>
-                        <li>Fan Control <span>PID controlled</span></li>
-                        <li>Chassis <span>Aluminum alloy</span></li>
+                        <li>MINI <span>Fully passive (aviation aluminum)</span></li>
+                        <li>Pro <span>Passive + intelligent low-noise fan</span></li>
+                        <li>Ultra <span>Heat pipe + high-performance fan</span></li>
                         <li>Operating Temp <span>0°C ~ 50°C</span></li>
-                        <li>Industrial Option <span>Available, wider temp range</span></li>
-                    </ul>
-                </div>
-                <div class="spec-card">
-                    <h3>Interface Layout</h3>
-                    <ul>
-                        <li>Front Panel <span>2×USB-C, audio jack</span></li>
-                        <li>Rear Panel <span>Dual 2.5G ports, USB 3.1, HDMI 2.1</span></li>
-                        <li>Expansion <span>GPIO (I2C/SPI/UART/PWM)</span></li>
-                        <li>Power <span>12V DC input</span></li>
                     </ul>
                 </div>
             </div>
@@ -121,56 +181,22 @@
 
     <section class="content-section">
         <div class="container">
-            <h2>Interface Details</h2>
-            <div class="interface-section">
-                <div class="interface-panel">
-                    <h3>Front Panel</h3>
-                    <div class="interface-items">
-                        <div class="interface-item">2× USB-C (USB 3.1 Gen1, 5Gbps)</div>
-                        <div class="interface-item">One supports DP Alt Mode for video output</div>
-                        <div class="interface-item">3.5mm audio combo jack</div>
-                        <div class="interface-item">Power button</div>
-                        <div class="interface-item">Status LEDs</div>
-                </div>
-                    </div>
-                <div class="interface-panel">
-                    <h3>Rear Panel</h3>
-                    <div class="interface-items">
-                        <div class="interface-item">2× 2.5GbE ports (with aggregation support)</div>
-                        <div class="interface-item">2× USB 3.1 Gen1 Type-A</div>
-                        <div class="interface-item">1× USB 3.1 Gen1 Type-C OTG</div>
-                        <div class="interface-item">HDMI 2.1 (8K@60fps with HDR)</div>
-                        <div class="interface-item">GPIO expansion header (I2C/SPI/UART/PWM)</div>
-                        <div class="interface-item">12V DC power input</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section">
-        <div class="container">
-            <h2>Target Applications</h2>
-            <div class="spec-grid">
+            <h2>AI Capability Comparison</h2>
+            <div class="spec-grid three-cols">
                 <div class="spec-card">
-                    <h3>Desktop AI Assistant</h3>
-                    <p>Desktop AI automation assistant with voice interaction and local LLM inference</p>
+                    <h3>IClawMINI</h3>
+                    <p>No local model operation</p>
+                    <p class="ai-note">Pure cloud storage + scheduler focus</p>
                 </div>
                 <div class="spec-card">
-                    <h3>Home Storage Center</h3>
-                    <p>High-performance home NAS/cloud storage for media streaming, backups, and 8K video transcoding</p>
+                    <h3>IClawMINI Pro</h3>
+                    <p>Smooth operation of 2B parameter models</p>
+                    <p class="ai-note">Tested: Qwen2-1.5B, Phi-2 @ ~8-10 tokens/sec</p>
                 </div>
                 <div class="spec-card">
-                    <h3>Soft Router/Gateway</h3>
-                    <p>Soft router and gateway with 2.5GbE ports and advanced network services</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Edge Computing Gateway</h3>
-                    <p>IoT gateway with up to 32 channels @1080p video analytics</p>
-                </div>
-                <div class="spec-card">
-                    <h3>Development Platform</h3>
-                    <p>Embedded development platform for RK3588 evaluation and prototyping</p>
+                    <h3>IClawMINI Ultra</h3>
+                    <p>7B-13B quantized models, up to 70B</p>
+                    <p class="ai-note">50TOPS NPU + 128GB unified memory</p>
                 </div>
             </div>
         </div>
