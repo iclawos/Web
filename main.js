@@ -41,9 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
+                setTimeout(() => {
+                    entry.target.classList.add('fade-in');
+                }, index * 100);
             }
         });
     }, observerOptions);
