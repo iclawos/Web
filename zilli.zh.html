@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zilli - AI Agent 训练框架</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.zh.html" class="logo">IClawMini</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.zh.html">首页</a></li>
+                <li><a href="hardware.zh.html">硬件</a></li>
+                <li><a href="iclawos.zh.html">IClawOS</a></li>
+                <li><a href="zilli.zh.html" class="active">Zilli</a></li>
+                <li><a href="contact.zh.html">联络</a></li>
+            </ul>
+            <a href="zilli.html" class="lang-btn">EN</a>
+        </div>
+    </nav>
+    <div class="nav-overlay"></div>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Zilli</h1>
+            <p>AI Agent 自主开发与强化学习训练框架</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>概述</h2>
+            <p style="font-size: 18px; color: var(--text-secondary); line-height: 1.8; max-width: 800px;">
+                Zilli 是一个面向 AI 自主开发的下一代 Agent 工具工程方案，核心理念是"AI 写 AI"、
+                "评估即开发"、"从环境中来"以及"从 Agent 到 RL"。整个系统围绕一个五阶段执行蓝图构建，
+                形成自我进化的闭环。
+            </p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>五阶段架构</h2>
+            <div class="architecture">
+                <div class="architecture-layer">
+                    <h3>Phase 1: 定义</h3>
+                    <p>定义可自动验证的任务集，设计基于 Pydantic 的类型安全 Agent API 契约。</p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>Phase 2: 数据</h3>
+                    <p>搭建模拟沙箱环境，生成轨迹数据，建立分层经验回放池（黄金轨迹 + 失败反思）。</p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>Phase 3: 基础设施</h3>
+                    <p>部署 SGLang + Megatron-LM 异构算力，实现长度自适应控制和异步 Rollout 调度。</p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>Phase 4: 训练</h3>
+                    <p>CISPO 算法确保多轮 Agent 训练稳定性，支持 RLVR 奖励塑形和 GRPO 基线。</p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>Phase 5: 进化</h3>
+                    <p>离线进化引擎（DSPy + GEPA）优化 Skill，从生产数据持续学习。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>与 IClawOS 的关系</h2>
+            <div class="spec-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="spec-card">
+                    <h3>Zilli</h3>
+                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
+                        AI Agent 训练基础设施层。<br><br>
+                        为 IClawOS 的 Agent 提供 RL 训练、Skill 进化和轨迹数据反馈能力。
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>IClawOS</h3>
+                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
+                        AI 原生 Linux 操作系统，你的 24/7 数字管家。<br><br>
+                        Zilli 训练的模型部署到 IClawOS，生产交互数据回流到 Zilli 持续优化。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>技术栈</h2>
+            <div class="spec-grid">
+                <div class="spec-card">
+                    <h3>语言</h3>
+                    <ul class="features-list">
+                        <li>Python 3.11+</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>核心库</h3>
+                    <ul class="features-list">
+                        <li>pydantic</li>
+                        <li>numpy</li>
+                        <li>dspy-ai</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>RL 算法</h3>
+                    <ul class="features-list">
+                        <li>CISPO</li>
+                        <li>GRPO</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>代码仓库</h3>
+                    <ul class="features-list">
+                        <li><a href="https://github.com/iclawos/Zilli" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">github.com/iclawos/Zilli</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 IClawMini. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

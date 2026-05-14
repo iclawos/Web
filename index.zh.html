@@ -20,6 +20,7 @@
                 <li><a href="index.zh.html" class="active">首页</a></li>
                 <li><a href="hardware.zh.html">硬件</a></li>
                 <li><a href="iclawos.zh.html">IClawOS</a></li>
+                <li><a href="zilli.zh.html">Zilli</a></li>
                 <li><a href="contact.zh.html">联络</a></li>
             </ul>
             <a href="index.html" class="lang-btn">EN</a>
@@ -28,6 +29,7 @@
     <div class="nav-overlay"></div>
 
     <section class="hero">
+        <canvas id="ai-particles"></canvas>
         <div class="hero-content">
             <img src="IClawMini.jpg" alt="IClawMini 设备" class="hero-image">
             <h1 class="hero-title">IClawMini</h1>
@@ -86,12 +88,34 @@
         </div>
     </section>
 
+    <section class="features" style="background: var(--bg-primary);">
+        <div class="container">
+            <h2 style="font-size: 40px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; text-align: center;">并行项目</h2>
+            <p style="font-size: 19px; color: var(--text-secondary); text-align: center; margin-bottom: 60px;">两个协同项目，共同驱动 AI 的未来</p>
+            <div class="spec-grid" style="grid-template-columns: 1fr 1fr;">
+                <div class="spec-card" style="padding: 48px; text-align: center;">
+                    <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em;">IClawOS</h3>
+                    <p style="color: var(--accent); font-size: 14px; margin-bottom: 20px;">AI 原生操作系统</p>
+                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">运行在 IClawMini 硬件上的 AI 原生 Linux 发行版，你的 24/7 数字管家。</p>
+                    <a href="iclawos.zh.html" class="btn btn-primary">了解更多</a>
+                </div>
+                <div class="spec-card" style="padding: 48px; text-align: center; border-color: var(--accent);">
+                    <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em;">Zilli</h3>
+                    <p style="color: var(--accent); font-size: 14px; margin-bottom: 20px;">AI Agent 训练框架</p>
+                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">自我进化的 AI Agent 框架，通过 RL 训练实现"AI 写 AI"——让 Agent 自我改进。</p>
+                    <a href="zilli.zh.html" class="btn btn-primary">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 IClawMini. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="particles.js" defer></script>
+    <script src="main.js" defer></script>
 </body>
 </html>
