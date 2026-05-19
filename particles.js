@@ -5,16 +5,21 @@ document.addEventListener('DOMContentLoaded', function() {
     var particles = [];
     var mouse = { x: null, y: null, radius: 120 };
 
+    var dpr = window.devicePixelRatio || 1;
+
     function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        dpr = window.devicePixelRatio || 1;
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
     }
     resize();
     window.addEventListener('resize', resize);
 
     canvas.addEventListener('mousemove', function(e) {
-        mouse.x = e.x;
-        mouse.y = e.y;
+        mouse.x = e.x * dpr;
+        mouse.y = e.y * dpr;
     });
     canvas.addEventListener('mouseleave', function() {
         mouse.x = null;

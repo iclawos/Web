@@ -648,6 +648,20 @@
 
         document.getElementById('startOverlay').addEventListener('click', startExperience);
 
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                audioStarted = false;
+                if (audioContext) {
+                    audioContext.suspend();
+                }
+            } else if (audioStarted) {
+                if (audioContext && audioContext.state === 'suspended') {
+                    audioContext.resume();
+                }
+                audioStarted = true;
+            }
+        });
+
         window.addEventListener('resize', () => { resize(); initStars(); });
         resize();
         initStars();

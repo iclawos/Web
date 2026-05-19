@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="IClawMini - 边缘人工智能体计算。让人工智能自动计算无处不在，紧凑高效的硬件设计。">
     <title>IClawMini - 边缘人工智能体计算</title>
+    <link rel="canonical" href="https://iclawmini.com/index.zh.html">
+    <link rel="alternate" hreflang="en" href="https://iclawmini.com/">
+    <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/index.zh.html">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav class="navbar" aria-label="主导航">
         <div class="nav-container">
             <a href="index.html" class="logo">IClawMini</a>
-            <div class="hamburger">
+            <button class="hamburger" aria-label="切换导航菜单" type="button">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.zh.html" class="active">首页</a></li>
                 <li><a href="hardware.zh.html">硬件</a></li>
+                <li><a href="solution.zh.html">方案</a></li>
                 <li><a href="iclawos.zh.html">IClawOS</a></li>
                 <li><a href="zilli.zh.html">Zilli</a></li>
                 <li><a href="contact.zh.html">联络</a></li>
@@ -47,7 +51,7 @@
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
                     </div>
@@ -56,7 +60,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
                             <line x1="8" y1="21" x2="16" y2="21"/>
                             <line x1="12" y1="17" x2="12" y2="21"/>
@@ -67,7 +71,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
                         </svg>
                     </div>
@@ -76,7 +80,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <circle cx="12" cy="12" r="10"/>
                             <path d="M12 6v6l4 2"/>
                         </svg>
@@ -90,19 +94,19 @@
 
     <section class="features" style="background: var(--bg-primary);">
         <div class="container">
-            <h2 style="font-size: 40px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; text-align: center;">并行项目</h2>
-            <p style="font-size: 19px; color: var(--text-secondary); text-align: center; margin-bottom: 60px;">两个协同项目，共同驱动 AI 的未来</p>
-            <div class="spec-grid" style="grid-template-columns: 1fr 1fr;">
-                <div class="spec-card" style="padding: 48px; text-align: center;">
-                    <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em;">IClawOS</h3>
-                    <p style="color: var(--accent); font-size: 14px; margin-bottom: 20px;">AI 原生操作系统</p>
-                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">运行在 IClawMini 硬件上的 AI 原生 Linux 发行版，你的 24/7 数字管家。</p>
+            <h2 class="section-heading">并行项目</h2>
+            <p class="section-subtitle">两个协同项目，共同驱动 AI 的未来</p>
+            <div class="spec-grid two-col">
+                <div class="spec-card project-card">
+                    <h3>IClawOS</h3>
+                    <p class="project-label">AI 原生操作系统</p>
+                    <p class="project-desc">运行在 IClawMini 硬件上的 AI 原生 Linux 发行版，你的 24/7 数字管家。</p>
                     <a href="iclawos.zh.html" class="btn btn-primary">了解更多</a>
                 </div>
-                <div class="spec-card" style="padding: 48px; text-align: center; border-color: var(--accent);">
-                    <h3 style="font-size: 28px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em;">Zilli</h3>
-                    <p style="color: var(--accent); font-size: 14px; margin-bottom: 20px;">AI Agent 训练框架</p>
-                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">自我进化的 AI Agent 框架，通过 RL 训练实现"AI 写 AI"——让 Agent 自我改进。</p>
+                <div class="spec-card project-card project-card-accent">
+                    <h3>Zilli</h3>
+                    <p class="project-label">AI Agent 训练框架</p>
+                    <p class="project-desc">自我进化的 AI Agent 框架，通过 RL 训练实现"AI 写 AI"——让 Agent 自我改进。</p>
                     <a href="zilli.zh.html" class="btn btn-primary">了解更多</a>
                 </div>
             </div>
