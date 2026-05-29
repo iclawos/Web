@@ -8,35 +8,42 @@
     <link rel="canonical" href="https://iclawmini.com/">
     <link rel="alternate" hreflang="en" href="https://iclawmini.com/">
     <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/index.zh.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IClawMini">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="IClawMini - Edge AI Computing">
+    <meta property="og:description" content="Bringing AI-powered computing everywhere with compact, efficient hardware.">
+    <meta property="og:url" content="https://iclawmini.com/">
+    <meta property="og:image" content="https://iclawmini.com/IClawMini.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "IClawMini",
+        "description": "Edge AI Computing. Bringing AI-powered computing everywhere with compact, efficient hardware.",
+        "url": "https://iclawmini.com/",
+        "brand": {
+            "@type": "Brand",
+            "name": "IClawMini"
+        }
+    }
+    </script>
 </head>
 <body>
-    <nav class="navbar" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="index.html" class="logo">IClawMini</a>
-            <button class="hamburger" aria-label="Toggle navigation menu" type="button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="hardware.html">Hardware</a></li>
-                <li><a href="solution.html">Solution</a></li>
-                <li><a href="iclawos.html">IClawOS</a></li>
-                <li><a href="zilli.html">Zilli</a></li>
-                <li><a href="iclawcat.html">iClawCat</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <a href="index.zh.html" class="lang-btn">中文</a>
-        </div>
-    </nav>
-    <div class="nav-overlay"></div>
+    <a href="#main" class="skip-link">Skip to main content</a>
 
+    <div data-include="components/nav-en.html"></div>
+
+    <main id="main">
     <section class="hero">
         <canvas id="ai-particles"></canvas>
         <div class="hero-content">
-            <img src="IClawMini.jpg" alt="IClawMini Device" class="hero-image">
+            <img src="IClawMini.jpg" alt="IClawMini Device" class="hero-image" loading="lazy">
             <h1 class="hero-title">IClawMini</h1>
             <p class="hero-subtitle">Edge AI Computing</p>
             <p class="hero-description">Bringing AI-powered computing everywhere</p>
@@ -95,8 +102,8 @@
 
     <section class="features" style="background: var(--bg-primary);">
         <div class="container">
-            <h2 class="section-heading">Parallel Projects</h2>
-            <p class="section-subtitle">Two synergistic projects powering the future of AI</p>
+            <h2 class="section-heading">Projects</h2>
+            <p class="section-subtitle">Four synergistic projects powering the future of AI</p>
             <div class="spec-grid two-col">
                 <div class="spec-card project-card">
                     <h3>IClawOS</h3>
@@ -110,9 +117,22 @@
                     <p class="project-desc">Self-evolving AI agent framework using RL training. "AI writes AI" — agents that improve themselves.</p>
                     <a href="zilli.html" class="btn btn-primary">Learn More</a>
                 </div>
+                <div class="spec-card project-card project-card-accent">
+                    <h3>VibeBuddy</h3>
+                    <p class="project-label">AI Smart Ring</p>
+                    <p class="project-desc">Gesture-controlled smart ring for Claude Desktop. Approve, deny, and interact with AI using intuitive gestures.</p>
+                    <a href="vibebuddy.html" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="spec-card project-card">
+                    <h3>iClawCat</h3>
+                    <p class="project-label">Smart Desktop Pet Companion</p>
+                    <p class="project-desc">AI companion with emotional interaction, privacy security, and creative co-pilot — all in a cute cat-shaped form.</p>
+                    <a href="iclawcat.html" class="btn btn-primary">Learn More</a>
+                </div>
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -121,6 +141,7 @@
     </footer>
 
     <script src="particles.js" defer></script>
-    <script src="main.js" defer></script>
+    <script src="include.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

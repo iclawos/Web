@@ -8,33 +8,28 @@
     <link rel="canonical" href="https://iclawmini.com/contact.zh.html">
     <link rel="alternate" hreflang="en" href="https://iclawmini.com/contact.html">
     <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/contact.zh.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IClawMini">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="联络我们 - IClawMini">
+    <meta property="og:description" content="联系 IClawMini 团队，发送邮件或访问 GitHub。">
+    <meta property="og:url" content="https://iclawmini.com/contact.zh.html">
+    <meta property="og:image" content="https://iclawmini.com/IClawMini.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar" aria-label="主导航">
-        <div class="nav-container">
-            <a href="index.zh.html" class="logo">IClawMini</a>
-            <button class="hamburger" aria-label="切换导航菜单" type="button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="index.zh.html">首页</a></li>
-                <li><a href="hardware.zh.html">硬件</a></li>
-                <li><a href="solution.zh.html">方案</a></li>
-                <li><a href="iclawos.zh.html">IClawOS</a></li>
-                <li><a href="zilli.zh.html">Zilli</a></li>
-                <li><a href="iclawcat.zh.html">iClawCat</a></li>
-                <li><a href="contact.zh.html" class="active">联络</a></li>
-            </ul>
-            <a href="contact.html" class="lang-btn">EN</a>
-        </div>
-    </nav>
-    <div class="nav-overlay"></div>
+    <a href="#main" class="skip-link">跳到主要内容</a>
 
+    <div data-include="components/nav-zh.html"></div>
+
+    <main id="main">
     <header class="page-header">
         <div class="container">
+            <a href="index.zh.html" class="back-link">&larr; 返回首页</a>
             <h1>联络我们</h1>
             <p>期待与您的交流与合作</p>
         </div>
@@ -71,11 +66,12 @@
     <section class="content-section">
         <div class="container">
             <h2>关于 IClawMini</h2>
-            <p style="font-size: 16px; line-height: 1.8; max-width: 800px; color: var(--text-secondary);">
+            <p class="about-text">
                 IClawMini 是一个边缘人工智能体计算项目。我们的使命是让人工智能自动计算无处不在。IClawOS 操作系统运行在低功耗定制硬件系统上，为您提供强大的本地 AI 能力。
             </p>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -83,6 +79,7 @@
         </div>
     </footer>
 
-    <script src="main.js" defer></script>
+    <script src="include.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

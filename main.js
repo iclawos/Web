@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navOverlay = document.querySelector('.nav-overlay');
-    
+    var hamburger = document.querySelector('.hamburger');
+    var navLinks = document.querySelector('.nav-links');
+    var navOverlay = document.querySelector('.nav-overlay');
+
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
-        
+
         if (navOverlay) {
             navOverlay.addEventListener('click', function() {
                 hamburger.classList.remove('active');
@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.style.overflow = '';
             });
         }
-        
-        document.querySelectorAll('.nav-links a').forEach(link => {
+
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
             link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
@@ -33,38 +33,64 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    const observerOptions = {
+
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+        }
+    });
+
+    var langBtn = document.querySelector('.lang-btn');
+    var targetPage;
+    if (currentPage === 'index.html') {
+        targetPage = 'index.zh.html';
+    } else if (currentPage === 'index.zh.html') {
+        targetPage = 'index.html';
+    } else if (currentPage.endsWith('.zh.html')) {
+        targetPage = currentPage.replace('.zh.html', '.html');
+    } else if (currentPage.endsWith('.html')) {
+        targetPage = currentPage.replace('.html', '.zh.html');
+    }
+    if (langBtn && targetPage) {
+        langBtn.href = targetPage;
+    }
+
+    var floatLang = document.createElement('a');
+    floatLang.className = 'float-lang';
+    if (currentPage.endsWith('.zh.html')) {
+        floatLang.textContent = 'EN';
+    } else {
+        floatLang.textContent = '中文';
+    }
+    floatLang.href = targetPage || 'index.html';
+    floatLang.setAttribute('aria-label', 'Switch language');
+    document.body.appendChild(floatLang);
+
+    var observerOptions = {
         root: null,
         rootMargin: '0px',
         threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry, index) {
             if (entry.isIntersecting) {
-                setTimeout(() => {
+                setTimeout(function() {
                     entry.target.classList.add('fade-in');
                 }, index * 100);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.feature-card, .spec-card, .architecture-layer, .contact-card').forEach(el => {
+    document.querySelectorAll('.feature-card, .spec-card, .architecture-layer, .contact-card').forEach(function(el) {
         observer.observe(el);
     });
 
-    const navMenuLinks = document.querySelectorAll('.nav-links a');
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
-    navMenuLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
-            link.classList.add('active');
-        }
-    });
-
     window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
+        var navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
             navbar.style.background = 'rgba(0, 0, 0, 0.95)';
         } else {

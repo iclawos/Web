@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VibeBuddy - AI smart ring for Claude Desktop. Gesture control, haptic feedback, and BLE communication for AI permission approval.">
+    <title>VibeBuddy - AI Smart Ring</title>
+    <link rel="canonical" href="https://iclawmini.com/vibebuddy.html">
+    <link rel="alternate" hreflang="en" href="https://iclawmini.com/vibebuddy.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/vibebuddy.zh.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IClawMini">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="VibeBuddy - AI Smart Ring">
+    <meta property="og:description" content="Gesture-controlled smart ring for Claude Desktop. Approve, deny, and interact with AI using intuitive gestures and haptic feedback.">
+    <meta property="og:url" content="https://iclawmini.com/vibebuddy.html">
+    <meta property="og:image" content="https://iclawmini.com/IClawMini.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <div data-include="components/nav-en.html"></div>
+
+    <main id="main">
+    <header class="page-header">
+        <div class="container">
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
+            <h1>VibeBuddy</h1>
+            <p>AI smart ring — approve, deny, interact at the speed of thought</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Two Models</h2>
+            <p class="section-text">VibeBuddy connects to Claude Desktop via BLE, letting you approve or deny AI actions with a simple gesture. Two tiers: a minimalist ring for pure gesture control, and an OLED flagship with visual feedback and custom character packs.</p>
+            <div class="spec-grid two-col section-top-margin">
+                <div class="spec-card series-card">
+                    <h3>VibeBuddy</h3>
+                    <div class="series-position">Pure gesture control, ultra-low power</div>
+                    <ul class="series-specs">
+                        <li><strong>SoC:</strong> nRF54L15 (Cortex-M33 @ 128MHz)</li>
+                        <li><strong>Connectivity:</strong> BLE 5.0+ with NUS protocol</li>
+                        <li><strong>Sensor:</strong> BMI270 6-axis IMU</li>
+                        <li><strong>Feedback:</strong> Linear motor + RGB LED (WS2812B)</li>
+                        <li><strong>Battery:</strong> 19-21mAh, 7-10 day life</li>
+                        <li><strong>Charging:</strong> NFC wireless</li>
+                        <li><strong>Material:</strong> Titanium / Ceramic</li>
+                        <li><strong>Weight:</strong> &lt;6g</li>
+                        <li><strong>Waterproof:</strong> IP68 / 5ATM</li>
+                        <li><strong>Width:</strong> 8-10mm</li>
+                    </ul>
+                    <div class="series-target">
+                        <strong>Target:</strong> Minimalist design, reliable connection, long battery life
+                    </div>
+                </div>
+                <div class="spec-card series-card series-pro">
+                    <h3>VibeBuddy Pro</h3>
+                    <div class="series-position">OLED display + touch + gesture</div>
+                    <ul class="series-specs">
+                        <li><strong>SoC:</strong> nRF54L15 + RISC-V coprocessor</li>
+                        <li><strong>Display:</strong> Flexible OLED 160×32 (270° wrap)</li>
+                        <li><strong>Touch:</strong> Capacitive touch over display</li>
+                        <li><strong>Sensor:</strong> BMI270 6-axis IMU</li>
+                        <li><strong>Feedback:</strong> Linear motor + RGB LED</li>
+                        <li><strong>Battery:</strong> 24-25mAh, 5-7 day life</li>
+                        <li><strong>Charging:</strong> NFC wireless</li>
+                        <li><strong>Material:</strong> Titanium / Ceramic</li>
+                        <li><strong>Weight:</strong> ~6.6g</li>
+                        <li><strong>Custom:</strong> GIF character packs</li>
+                    </ul>
+                    <div class="series-target">
+                        <strong>Target:</strong> Rich visual feedback, custom characters, full interaction
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>Core Interaction</h2>
+            <div class="spec-grid three-cols">
+                <div class="spec-card card-center card-value">
+                    <h3 class="value-title">Gesture Control</h3>
+                    <p class="card-body">Double-tap to approve, long-press to deny. Wrist rotation for ignore. No screen needed.</p>
+                </div>
+                <div class="spec-card card-center card-value project-card-accent">
+                    <h3 class="value-title">BLE Protocol</h3>
+                    <p class="card-body">Nordic UART Service with JSON payloads. Fully compatible with Claude Desktop permission system.</p>
+                </div>
+                <div class="spec-card card-center card-value">
+                    <h3 class="value-title">Haptic Feedback</h3>
+                    <p class="card-body">Distinct vibration patterns for request, approve, deny, and alert. Status at your fingertip.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="spec-grid two-col">
+                <div class="spec-card">
+                    <h3>1. Permission Request</h3>
+                    <p class="card-body">Claude Desktop sends a JSON permission request via BLE. Ring vibrates (short-short-long) and LED flashes amber.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>2. Gesture Response</h3>
+                    <p class="card-body">Double-tap to approve — green LED, single buzz. Long-press to deny — red LED, double buzz.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>3. Real-Time Status</h3>
+                    <p class="card-body">Pro model displays Claude's status on OLED: sleep, idle, busy, waiting, celebrate, dizzy — each with unique animation.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>4. Custom Characters</h3>
+                    <p class="card-body">Pro users can upload custom GIF character packs via Claude Desktop. Drag, drop, wear — your AI in a ring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>Status Feedback</h2>
+            <div class="spec-grid" style="grid-template-columns: 1fr;">
+                <div class="spec-card" style="padding: 20px 32px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 16px; text-align: center;">
+                        <div>
+                            <h3 style="margin-bottom: 4px;">Sleep</h3>
+                            <p class="card-body">Pet sleeps</p>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 4px;">Idle</h3>
+                            <p class="card-body">Pet blinks</p>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 4px;">Busy</h3>
+                            <p class="card-body">Sweating</p>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 4px;">Attention</h3>
+                            <p class="card-body">Amber + vibration</p>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 4px;">Warning</h3>
+                            <p class="card-body">Red + urgent buzz</p>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 4px;">Celebrate</h3>
+                            <p class="card-body">Party + token count</p>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 4px;">Dizzy</h3>
+                            <p class="card-body">Shake animation</p>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 4px;">Heart</h3>
+                            <p class="card-body">Quick approve + hearts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container section-center">
+            <h2>Technical Specifications</h2>
+            <div class="spec-grid two-col section-top-margin">
+                <div class="spec-card">
+                    <h3>Communication</h3>
+                    <ul class="features-list">
+                        <li>BLE 5.0+ with NUS service</li>
+                        <li>JSON data protocol</li>
+                        <li>30-50ms connection interval</li>
+                        <li>Slave latency enabled</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Power Management</h3>
+                    <ul class="features-list">
+                        <li>Deep sleep &lt;5µA</li>
+                        <li>RTC timed wake-up</li>
+                        <li>IMU interrupt wake</li>
+                        <li>NFC wireless charging (~45% eff.)</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Gesture Recognition</h3>
+                    <ul class="features-list">
+                        <li>IMU sampling at 25Hz</li>
+                        <li>Threshold-based detection</li>
+                        <li>Upgradable to TFLite Micro</li>
+                        <li>False-touch mitigation</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Durability</h3>
+                    <ul class="features-list">
+                        <li>Titanium/ceramic housing</li>
+                        <li>Flexible PCB (FPC)</li>
+                        <li>IP68 / 5ATM waterproof</li>
+                        <li>Fully sealed, no buttons</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 IClawMini. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="include.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

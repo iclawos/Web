@@ -8,33 +8,28 @@
     <link rel="canonical" href="https://iclawmini.com/zilli.zh.html">
     <link rel="alternate" hreflang="en" href="https://iclawmini.com/zilli.html">
     <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/zilli.zh.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IClawMini">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="Zilli - AI Agent 训练框架">
+    <meta property="og:description" content="自我进化的 AI Agent 框架，通过 RL 训练实现 AI 写 AI。">
+    <meta property="og:url" content="https://iclawmini.com/zilli.zh.html">
+    <meta property="og:image" content="https://iclawmini.com/IClawMini.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar" aria-label="主导航">
-        <div class="nav-container">
-            <a href="index.zh.html" class="logo">IClawMini</a>
-            <button class="hamburger" aria-label="切换导航菜单" type="button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="index.zh.html">首页</a></li>
-                <li><a href="hardware.zh.html">硬件</a></li>
-                <li><a href="solution.zh.html">方案</a></li>
-                <li><a href="iclawos.zh.html">IClawOS</a></li>
-                <li><a href="zilli.zh.html" class="active">Zilli</a></li>
-                <li><a href="iclawcat.zh.html">iClawCat</a></li>
-                <li><a href="contact.zh.html">联络</a></li>
-            </ul>
-            <a href="zilli.html" class="lang-btn">EN</a>
-        </div>
-    </nav>
-    <div class="nav-overlay"></div>
+    <a href="#main" class="skip-link">跳到主要内容</a>
 
+    <div data-include="components/nav-zh.html"></div>
+
+    <main id="main">
     <header class="page-header">
         <div class="container">
+            <a href="index.zh.html" class="back-link">&larr; 返回首页</a>
             <h1>Zilli</h1>
             <p>AI Agent 自主开发与强化学习训练框架</p>
         </div>
@@ -82,17 +77,17 @@
     <section class="content-section">
         <div class="container">
             <h2>与 IClawOS 的关系</h2>
-            <div class="spec-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="spec-grid two-col">
                 <div class="spec-card">
                     <h3>Zilli</h3>
-                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
+                    <p class="card-body">
                         AI Agent 训练基础设施层。<br><br>
                         为 IClawOS 的 Agent 提供 RL 训练、Skill 进化和轨迹数据反馈能力。
                     </p>
                 </div>
                 <div class="spec-card">
                     <h3>IClawOS</h3>
-                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
+                    <p class="card-body">
                         AI 原生 Linux 操作系统，你的 24/7 数字管家。<br><br>
                         Zilli 训练的模型部署到 IClawOS，生产交互数据回流到 Zilli 持续优化。
                     </p>
@@ -129,12 +124,13 @@
                 <div class="spec-card">
                     <h3>代码仓库</h3>
                     <ul class="features-list">
-                        <li><a href="https://github.com/iclawos/Zilli" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">github.com/iclawos/Zilli</a></li>
+                        <li><a href="https://github.com/iclawos/Zilli" target="_blank" rel="noopener noreferrer" class="accent-link">github.com/iclawos/Zilli</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -142,6 +138,7 @@
         </div>
     </footer>
 
-    <script src="main.js" defer></script>
+    <script src="include.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

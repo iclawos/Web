@@ -8,35 +8,42 @@
     <link rel="canonical" href="https://iclawmini.com/index.zh.html">
     <link rel="alternate" hreflang="en" href="https://iclawmini.com/">
     <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/index.zh.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IClawMini">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="IClawMini - 边缘人工智能体计算">
+    <meta property="og:description" content="让人工智能自动计算无处不在，紧凑高效的硬件设计。">
+    <meta property="og:url" content="https://iclawmini.com/index.zh.html">
+    <meta property="og:image" content="https://iclawmini.com/IClawMini.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "IClawMini",
+        "description": "边缘人工智能体计算。让人工智能自动计算无处不在，紧凑高效的硬件设计。",
+        "url": "https://iclawmini.com/index.zh.html",
+        "brand": {
+            "@type": "Brand",
+            "name": "IClawMini"
+        }
+    }
+    </script>
 </head>
 <body>
-    <nav class="navbar" aria-label="主导航">
-        <div class="nav-container">
-            <a href="index.html" class="logo">IClawMini</a>
-            <button class="hamburger" aria-label="切换导航菜单" type="button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="index.zh.html" class="active">首页</a></li>
-                <li><a href="hardware.zh.html">硬件</a></li>
-                <li><a href="solution.zh.html">方案</a></li>
-                <li><a href="iclawos.zh.html">IClawOS</a></li>
-                <li><a href="zilli.zh.html">Zilli</a></li>
-                <li><a href="iclawcat.zh.html">iClawCat</a></li>
-                <li><a href="contact.zh.html">联络</a></li>
-            </ul>
-            <a href="index.html" class="lang-btn">EN</a>
-        </div>
-    </nav>
-    <div class="nav-overlay"></div>
+    <a href="#main" class="skip-link">跳到主要内容</a>
 
+    <div data-include="components/nav-zh.html"></div>
+
+    <main id="main">
     <section class="hero">
         <canvas id="ai-particles"></canvas>
         <div class="hero-content">
-            <img src="IClawMini.jpg" alt="IClawMini 设备" class="hero-image">
+            <img src="IClawMini.jpg" alt="IClawMini 设备" class="hero-image" loading="lazy">
             <h1 class="hero-title">IClawMini</h1>
             <p class="hero-subtitle">边缘人工智能体计算</p>
             <p class="hero-description">让人工智能自动计算无处不在</p>
@@ -95,8 +102,8 @@
 
     <section class="features" style="background: var(--bg-primary);">
         <div class="container">
-            <h2 class="section-heading">并行项目</h2>
-            <p class="section-subtitle">两个协同项目，共同驱动 AI 的未来</p>
+            <h2 class="section-heading">项目</h2>
+            <p class="section-subtitle">四个协同项目，共同驱动 AI 的未来</p>
             <div class="spec-grid two-col">
                 <div class="spec-card project-card">
                     <h3>IClawOS</h3>
@@ -110,9 +117,22 @@
                     <p class="project-desc">自我进化的 AI Agent 框架，通过 RL 训练实现"AI 写 AI"——让 Agent 自我改进。</p>
                     <a href="zilli.zh.html" class="btn btn-primary">了解更多</a>
                 </div>
+                <div class="spec-card project-card project-card-accent">
+                    <h3>VibeBuddy</h3>
+                    <p class="project-label">AI 智能戒指</p>
+                    <p class="project-desc">为 Claude Desktop 设计的手势控制智能戒指，双击批准、长按拒绝，与 AI 无缝交互。</p>
+                    <a href="vibebuddy.zh.html" class="btn btn-primary">了解更多</a>
+                </div>
+                <div class="spec-card project-card">
+                    <h3>iClawCat</h3>
+                    <p class="project-label">智能桌宠伴侣</p>
+                    <p class="project-desc">融合情感交互、AI 助手、隐私安全与创意副驾于一体的桌面精灵。</p>
+                    <a href="iclawcat.zh.html" class="btn btn-primary">了解更多</a>
+                </div>
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -121,6 +141,7 @@
     </footer>
 
     <script src="particles.js" defer></script>
-    <script src="main.js" defer></script>
+    <script src="include.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

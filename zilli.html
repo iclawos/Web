@@ -8,33 +8,28 @@
     <link rel="canonical" href="https://iclawmini.com/zilli.html">
     <link rel="alternate" hreflang="en" href="https://iclawmini.com/zilli.html">
     <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/zilli.zh.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IClawMini">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Zilli - AI Agent Training Framework">
+    <meta property="og:description" content="Self-evolving AI agent framework using RL training. AI writes AI — agents that improve themselves.">
+    <meta property="og:url" content="https://iclawmini.com/zilli.html">
+    <meta property="og:image" content="https://iclawmini.com/IClawMini.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="index.html" class="logo">IClawMini</a>
-            <button class="hamburger" aria-label="Toggle navigation menu" type="button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="hardware.html">Hardware</a></li>
-                <li><a href="solution.html">Solution</a></li>
-                <li><a href="iclawos.html">IClawOS</a></li>
-                <li><a href="zilli.html" class="active">Zilli</a></li>
-                <li><a href="iclawcat.html">iClawCat</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <a href="zilli.zh.html" class="lang-btn">中文</a>
-        </div>
-    </nav>
-    <div class="nav-overlay"></div>
+    <a href="#main" class="skip-link">Skip to main content</a>
 
+    <div data-include="components/nav-en.html"></div>
+
+    <main id="main">
     <header class="page-header">
         <div class="container">
+            <a href="index.html" class="back-link">&larr; Back to Home</a>
             <h1>Zilli</h1>
             <p>AI Agent self-development and RL training framework</p>
         </div>
@@ -84,17 +79,17 @@
     <section class="content-section">
         <div class="container">
             <h2>Relation to IClawOS</h2>
-            <div class="spec-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="spec-grid two-col">
                 <div class="spec-card">
                     <h3>Zilli</h3>
-                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
+                    <p class="card-body">
                         AI Agent training infrastructure layer.<br><br>
                         Provides RL training, Skill evolution, and trajectory data feedback for IClawOS agents.
                     </p>
                 </div>
                 <div class="spec-card">
                     <h3>IClawOS</h3>
-                    <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.6;">
+                    <p class="card-body">
                         AI-native Linux distribution, your 24/7 digital butler.<br><br>
                         Zilli-trained models deploy to IClawOS, with production interaction data flowing back to Zilli for continuous improvement.
                     </p>
@@ -131,12 +126,13 @@
                 <div class="spec-card">
                     <h3>Repository</h3>
                     <ul class="features-list">
-                        <li><a href="https://github.com/iclawos/Zilli" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">github.com/iclawos/Zilli</a></li>
+                        <li><a href="https://github.com/iclawos/Zilli" target="_blank" rel="noopener noreferrer" class="accent-link">github.com/iclawos/Zilli</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
@@ -144,6 +140,7 @@
         </div>
     </footer>
 
-    <script src="main.js" defer></script>
+    <script src="include.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
