@@ -334,6 +334,7 @@ The IclawMini on-premises LLM solution, anchored by the **Qwen 3.6 27B + RTX 309
 
 | Language | File |
 | - | - |
+<<<<<<< HEAD
 | **English** | [IclawMini On-Premises Large Model Solution.md](IclawMini%20On-Premises%20Large%20Model%20Solution.md) |
 | **中文** | [IclawMini 本地运行大模型解决方案.md](IclawMini%20本地运行大模型解决方案.md) |
 

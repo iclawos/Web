@@ -1,0 +1,8 @@
+IClawOS is an AI-native Linux distribution (based on Ubuntu/Debian) designed to function as a 24/7 "digital butler" for general users, knowledge workers, and creators. Its defining feature is a deeply integrated AI that can not only answer questions but also autonomously operate the system, manage files, and execute complex workflows.
+
+The system is built on a three-layer "Cloud Brain + Terminal Limb" architecture:
+1.  **System Core Layer:** Features an "Orchestrator" with a hybrid AI model router. It uses a lightweight local model (such as Qwen 2.5) for privacy-focused tasks and can switch to more powerful cloud models for complex reasoning, all while maintaining persistent user memory via a vector database.
+2.  **Execution Sandbox Layer:** The key safety innovation is the "Pi-embedded" engine. It runs every AI task in a temporary, isolated sandbox (using cgroup/namespace) with strict, permission-based controls over file access, network, and application automation to prevent misuse.
+3.  **User Space:** Offers a global AI entry point (hotkey/voice), an out-of-box setup via natural language, and a "Skill Store" for one-click installation of automated capabilities (e.g., file management, report generation).
+
+The development plan includes low-level system customization (kernel tuning for isolation), integrating OpenClaw as a core system service, and building pre-installed skills for office tasks, media processing, and system management. The project aims to redefine human-computer interaction by shifting from manual clicks to goal-oriented, AI-executed commands, with a future roadmap towards full offline capability and multi-agent collaboration.
