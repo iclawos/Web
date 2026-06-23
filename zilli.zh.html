@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zilli - AI Agent 训练框架，五阶段架构实现 AI 自我进化。通过强化学习让 Agent 不断改进。">
-    <title>Zilli - AI Agent 训练框架</title>
+    <meta name="description" content="Zilli - 企业级 AI Agent 框架，集成五阶段 RL 训练流水线、企业隐私治理、本地-云端混合执行和合规报告。">
+    <title>Zilli - 企业级 AI Agent 训练与隐私框架</title>
     <link rel="canonical" href="https://iclawmini.com/zilli.zh.html">
     <link rel="alternate" hreflang="en" href="https://iclawmini.com/zilli.html">
     <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/zilli.zh.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="IClawMini">
     <meta property="og:locale" content="zh_CN">
-    <meta property="og:title" content="Zilli - AI Agent 训练框架">
-    <meta property="og:description" content="自我进化的 AI Agent 框架，通过 RL 训练实现 AI 写 AI。">
+    <meta property="og:title" content="Zilli - 企业级 AI Agent 训练与隐私框架">
+    <meta property="og:description" content="自我进化的 AI Agent 框架，集成企业隐私治理、本地-云端混合执行和合规报告。">
     <meta property="og:url" content="https://iclawmini.com/zilli.zh.html">
     <meta property="og:image" content="https://iclawmini.com/IClawMini.jpg">
     <meta name="twitter:card" content="summary_large_image">
@@ -31,7 +31,7 @@
         <div class="container">
             <a href="index.zh.html" class="back-link">&larr; 返回首页</a>
             <h1>Zilli</h1>
-            <p>AI Agent 自主开发与强化学习训练框架</p>
+            <p>企业级 AI Agent 自主开发、隐私治理与强化学习训练框架</p>
         </div>
     </header>
 
@@ -39,9 +39,10 @@
         <div class="container">
             <h2>概述</h2>
             <p class="section-text">
-                Zilli 是一个面向 AI 自主开发的下一代 Agent 工具工程方案，核心理念是"AI 写 AI"、
-                "评估即开发"、"从环境中来"以及"从 Agent 到 RL"。整个系统围绕一个五阶段执行蓝图构建，
-                形成自我进化的闭环。
+                Zilli 是一个面向 AI 自主开发和企业隐私治理的下一代 Agent 工具工程方案。
+                核心理念是"AI 写 AI"、"评估即开发"、"从环境中来"以及"从 Agent 到 RL"。
+                系统将五阶段 RL 训练流水线（形成自我进化闭环）与企业级数据分类（5 级）、
+                本地-云端混合执行、隐私门控和合规报告（GDPR/HIPAA/SOC2）融为一体。
             </p>
         </div>
     </section>
@@ -76,6 +77,127 @@
 
     <section class="content-section">
         <div class="container">
+            <h2>企业隐私</h2>
+            <p class="section-text">
+                Zilli 的隐私模块为敏感的企业工作负载提供端到端数据治理。
+                五级数据分类（PUBLIC / INTERNAL / CONFIDENTIAL / RESTRICTED / REGULATED）
+                驱动整个 Agent 生命周期中的自动化策略执行。
+            </p>
+            <div class="spec-grid two-col">
+                <div class="spec-card">
+                    <h3>DataClassifier</h3>
+                    <p class="card-body">
+                        5 级数据分类器，自动检测 PII/PHI。
+                        任何包含个人标识符的数据自动提升至 CONFIDENTIAL 级别以上。
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>PolicyStore</h3>
+                    <p class="card-body">
+                        租户级隐私策略持久化存储（JSONL 格式）。
+                        支持按数据分类级别的允许/拒绝规则、
+                        集成点和保留期配置。
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>ReIDAssessor</h3>
+                    <p class="card-body">
+                        去标识数据集的重识别风险评估。
+                        评估 singleton、k-anonymity 和 linkage 风险，
+                        标记任何残留重识别概率超过 5% 的情况。
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>ConsentManager</h3>
+                    <p class="card-body">
+                        数据点级别的精细同意管理。
+                        支持撤回、过期和基于目的的同意查询。
+                        完整的同意生命周期事件审计追踪。
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>PrivacyEngine</h3>
+                    <p class="card-body">
+                        协调引擎，整合分类器、策略、同意和重识别评估
+                        为统一决策流水线。对外暴露单一 <code>evaluate()</code>
+                        入口点。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>混合执行</h2>
+            <p class="section-text">
+                Zilli 的混合执行层以隐私保护方式桥接本地和云端模型部署。
+                敏感数据留在本地；经脱敏的载荷可在适当时使用云端模型。
+            </p>
+            <div class="architecture">
+                <div class="architecture-layer">
+                    <h3>PrivacyGatekeeper</h3>
+                    <p>
+                        根据数据分类和租户策略做出本地/云端/拒绝决策。
+                        RESTRICTED 和 REGULATED 数据强制本地执行；
+                        CONFIDENTIAL 数据经脱敏后可路由至云端。
+                    </p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>Sanitizer</h3>
+                    <p>
+                        在云端分发前从数据载荷中脱敏 PII/PHI。
+                        按数据类型使用配置的脱敏策略：
+                        掩码、哈希、替换或移除。
+                    </p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>HybridExecutor</h3>
+                    <p>
+                        执行模型推理，自动优先本地路由。
+                        仅当本地模型不可用且数据已成功脱敏时
+                        才回退到云端。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>合规与治理</h2>
+            <p class="section-text">
+                Zilli 基于现有审计追踪（JSONL 格式）为监管框架生成合规报告。
+                无需额外存储基础设施。
+            </p>
+            <div class="spec-grid three-cols">
+                <div class="spec-card">
+                    <h3>GDPR</h3>
+                    <p class="card-body">
+                        被遗忘权审计、同意记录、数据处理活动日志、
+                        跨境传输文档。
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>HIPAA</h3>
+                    <p class="card-body">
+                        PHI 访问日志、最低必要使用验证、
+                        泄露通知就绪评估。
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>SOC2</h3>
+                    <p class="card-body">
+                        安全监控证据、访问控制日志、
+                        变更管理记录、风险评估摘要。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
             <h2>与 IClawOS 的关系</h2>
             <div class="spec-grid two-col">
                 <div class="spec-card">
@@ -99,7 +221,7 @@
     <section class="content-section">
         <div class="container">
             <h2>技术栈</h2>
-            <div class="spec-grid">
+            <div class="spec-grid cols-4">
                 <div class="spec-card">
                     <h3>语言</h3>
                     <ul class="features-list">
@@ -119,6 +241,41 @@
                     <ul class="features-list">
                         <li>CISPO</li>
                         <li>GRPO</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>隐私</h3>
+                    <ul class="features-list">
+                        <li>DataClassifier</li>
+                        <li>PolicyStore</li>
+                        <li>ReIDAssessor</li>
+                        <li>ConsentManager</li>
+                        <li>PrivacyEngine</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>混合执行</h3>
+                    <ul class="features-list">
+                        <li>PrivacyGatekeeper</li>
+                        <li>Sanitizer</li>
+                        <li>HybridExecutor</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>合规</h3>
+                    <ul class="features-list">
+                        <li>GDPR 报告</li>
+                        <li>HIPAA 报告</li>
+                        <li>SOC2 报告</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>部署</h3>
+                    <ul class="features-list">
+                        <li>本地</li>
+                        <li>云端</li>
+                        <li>混合</li>
+                        <li>Docker</li>
                     </ul>
                 </div>
                 <div class="spec-card">

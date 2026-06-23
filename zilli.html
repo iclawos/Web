@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zilli - AI Agent training framework with five-phase architecture. Self-evolving AI agents through RL training and Skill evolution.">
-    <title>Zilli - AI Agent Training Framework</title>
+    <meta name="description" content="Zilli - Enterprise AI Agent framework with five-phase RL training pipeline, enterprise privacy governance, hybrid local-cloud execution, and compliance reporting.">
+    <title>Zilli - Enterprise AI Agent Training & Privacy Framework</title>
     <link rel="canonical" href="https://iclawmini.com/zilli.html">
     <link rel="alternate" hreflang="en" href="https://iclawmini.com/zilli.html">
     <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/zilli.zh.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="IClawMini">
     <meta property="og:locale" content="en_US">
-    <meta property="og:title" content="Zilli - AI Agent Training Framework">
-    <meta property="og:description" content="Self-evolving AI agent framework using RL training. AI writes AI — agents that improve themselves.">
+    <meta property="og:title" content="Zilli - Enterprise AI Agent Training & Privacy Framework">
+    <meta property="og:description" content="Self-evolving AI agent framework with enterprise privacy governance, hybrid local-cloud execution, and compliance reporting.">
     <meta property="og:url" content="https://iclawmini.com/zilli.html">
     <meta property="og:image" content="https://iclawmini.com/IClawMini.jpg">
     <meta name="twitter:card" content="summary_large_image">
@@ -31,7 +31,7 @@
         <div class="container">
             <a href="index.html" class="back-link">&larr; Back to Home</a>
             <h1>Zilli</h1>
-            <p>AI Agent self-development and RL training framework</p>
+            <p>Enterprise AI Agent self-development, privacy governance, and RL training framework</p>
         </div>
     </header>
 
@@ -39,11 +39,12 @@
         <div class="container">
             <h2>Overview</h2>
             <p class="section-text">
-                Zilli is a next-generation Agent tool engineering framework for AI self-development.
-                Its core philosophy is "AI writes AI", "evaluation as development",
-                "from the environment", and "from Agent to RL".
-                The entire system is built around a five-phase execution blueprint,
-                forming a self-evolving closed loop.
+                Zilli is a next-generation Agent tool engineering framework for AI self-development
+                and enterprise privacy governance. Its core philosophy is "AI writes AI",
+                "evaluation as development", "from the environment", and "from Agent to RL".
+                The system combines a five-phase RL training pipeline — forming a self-evolving
+                closed loop — with enterprise-grade data classification (5 levels), hybrid
+                local-cloud execution, privacy gatekeeping, and compliance reporting (GDPR/HIPAA/SOC2).
             </p>
         </div>
     </section>
@@ -78,6 +79,131 @@
 
     <section class="content-section">
         <div class="container">
+            <h2>Enterprise Privacy</h2>
+            <p class="section-text">
+                Zilli's privacy module provides end-to-end data governance for sensitive enterprise workloads.
+                Five data classification levels (PUBLIC, INTERNAL, CONFIDENTIAL, RESTRICTED, REGULATED)
+                drive automated policy enforcement across the entire Agent lifecycle.
+            </p>
+            <div class="spec-grid two-col">
+                <div class="spec-card">
+                    <h3>DataClassifier</h3>
+                    <p class="card-body">
+                        5-level data classification with automatic PII/PHI detection.
+                        Any data containing personal identifiers is automatically elevated
+                        to at least CONFIDENTIAL level.
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>PolicyStore</h3>
+                    <p class="card-body">
+                        Tenant-scoped privacy policies persisted in JSONL format.
+                        Supports allow/deny rules per data classification level,
+                        integration points, and retention configurations.
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>ReIDAssessor</h3>
+                    <p class="card-body">
+                        Re-identification risk assessment for de-identified datasets.
+                        Evaluates singleton, k-anonymity, and linkage risks,
+                        flagging any residual re-identification probability above 5%.
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>ConsentManager</h3>
+                    <p class="card-body">
+                        Granular consent tracking at the data-point level.
+                        Supports withdraw, expiry, and purpose-based consent queries.
+                        Full audit trail of consent lifecycle events.
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>PrivacyEngine</h3>
+                    <p class="card-body">
+                        Orchestration engine that coordinates classifier, policies,
+                        consent, and reID assessment into a unified decision pipeline.
+                        Exposes a single <code>evaluate()</code> entry point for the
+                        entire privacy stack.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>Hybrid Execution</h2>
+            <p class="section-text">
+                Zilli's hybrid execution layer bridges local and cloud model deployment
+                with privacy-preserving routing. Sensitive data stays local; sanitized
+                payloads may use cloud models when appropriate.
+            </p>
+            <div class="architecture">
+                <div class="architecture-layer">
+                    <h3>PrivacyGatekeeper</h3>
+                    <p>
+                        Makes local/cloud/deny decisions based on data classification
+                        and tenant policy. RESTRICTED and REGULATED data is forced to
+                        local execution; CONFIDENTIAL data may route to cloud after
+                        sanitization.
+                    </p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>Sanitizer</h3>
+                    <p>
+                        Redacts PII/PHI from data payloads before cloud dispatch.
+                        Uses configured redaction strategies per data type:
+                        mask, hash, replace, or remove.
+                    </p>
+                </div>
+                <div class="architecture-layer">
+                    <h3>HybridExecutor</h3>
+                    <p>
+                        Executes model inference with automatic local-first routing.
+                        Falls back to cloud only when the local model is unavailable
+                        and the data has been successfully sanitized.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Compliance &amp; Governance</h2>
+            <p class="section-text">
+                Zilli generates compliance reports from existing audit trails (JSONL format)
+                for regulatory frameworks out of the box. No additional storage infrastructure required.
+            </p>
+            <div class="spec-grid three-cols">
+                <div class="spec-card">
+                    <h3>GDPR</h3>
+                    <p class="card-body">
+                        Right to erasure audit, consent records, data processing activity
+                        logs, and cross-border transfer documentation.
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>HIPAA</h3>
+                    <p class="card-body">
+                        PHI access logs, minimum necessary use verification,
+                        and breach notification readiness assessment.
+                    </p>
+                </div>
+                <div class="spec-card">
+                    <h3>SOC2</h3>
+                    <p class="card-body">
+                        Security monitoring evidence, access control logs,
+                        change management records, and risk assessment summaries.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
             <h2>Relation to IClawOS</h2>
             <div class="spec-grid two-col">
                 <div class="spec-card">
@@ -101,7 +227,7 @@
     <section class="content-section">
         <div class="container">
             <h2>Tech Stack</h2>
-            <div class="spec-grid">
+            <div class="spec-grid cols-4">
                 <div class="spec-card">
                     <h3>Language</h3>
                     <ul class="features-list">
@@ -121,6 +247,41 @@
                     <ul class="features-list">
                         <li>CISPO</li>
                         <li>GRPO</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Privacy</h3>
+                    <ul class="features-list">
+                        <li>DataClassifier</li>
+                        <li>PolicyStore</li>
+                        <li>ReIDAssessor</li>
+                        <li>ConsentManager</li>
+                        <li>PrivacyEngine</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Hybrid Execution</h3>
+                    <ul class="features-list">
+                        <li>PrivacyGatekeeper</li>
+                        <li>Sanitizer</li>
+                        <li>HybridExecutor</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Compliance</h3>
+                    <ul class="features-list">
+                        <li>GDPR Reporting</li>
+                        <li>HIPAA Reporting</li>
+                        <li>SOC2 Reporting</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Deployment</h3>
+                    <ul class="features-list">
+                        <li>Local</li>
+                        <li>Cloud</li>
+                        <li>Hybrid</li>
+                        <li>Docker</li>
                     </ul>
                 </div>
                 <div class="spec-card">
