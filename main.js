@@ -34,6 +34,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    document.querySelectorAll('.nav-item-has-children > a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('open');
+            }
+        });
+    });
+
     var currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
     document.querySelectorAll('.nav-links a').forEach(function(link) {
@@ -57,17 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (langBtn && targetPage) {
         langBtn.href = targetPage;
     }
-
-    var floatLang = document.createElement('a');
-    floatLang.className = 'float-lang';
-    if (currentPage.endsWith('.zh.html')) {
-        floatLang.textContent = 'EN';
-    } else {
-        floatLang.textContent = '中文';
-    }
-    floatLang.href = targetPage || 'index.html';
-    floatLang.setAttribute('aria-label', 'Switch language');
-    document.body.appendChild(floatLang);
 
     var observerOptions = {
         root: null,
