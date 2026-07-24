@@ -1135,6 +1135,50 @@ body {
     grid-template-columns: 1fr 1fr;
 }
 
+.one-col {
+    grid-template-columns: 1fr;
+}
+
+/* Status Grid (Vibe Ring status feedback) */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.status-grid h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: var(--text-primary);
+}
+
+.section-primary {
+    background: var(--bg-primary);
+}
+
+.mt-md {
+    margin-top: 24px;
+}
+
+/* 404 */
+.hero-404 {
+    min-height: 60vh;
+}
+
+.hero-404 .hero-title {
+    font-size: 120px;
+}
+
+@media (max-width: 768px) {
+    .status-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-404 .hero-title {
+        font-size: 72px;
+    }
+}
+
 .cols-4 {
     grid-template-columns: repeat(4, 1fr);
 }
