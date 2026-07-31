@@ -1,3 +1,15 @@
+# Session 2026-08-01
+
+## Changed
+- **Design v2 consistency audit**: all 24 pages (EN+ZH) verified against v2 — all classes defined in styles.css, no missing styles
+- **favicon.ico cleanup**: removed dead `favicon.ico` link from all 24 pages (SVG favicon only) — commit e07428d
+- **Mobile overflow**: verified 0px at 375px across all pages
+- **Console**: zero real JS errors (local file:// CORS errors are dev-only artifacts)
+
+## Left
+- Push e07428d to GitHub (needs user approval)
+- components/head-en/zh.html are unused legacy includes (audit false positives; harmless)
+
 # Session 2026-07-20
 
 ## Changed
