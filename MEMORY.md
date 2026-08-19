@@ -1,3 +1,14 @@
+# Session 2026-08-19
+
+## Changed
+- **DESIGN.md created** — consolidated v2 "Refined Dark" design system as source of truth (tokens: color/type/spacing/radius/shadow/motion; component conventions; implementation rules) — commit b2a5c06
+- **Consistency scan**: verified pages don't use CSS vars inline (all via styles.css classes); only `lobster-expansion.html` (game) uses inline colors — intentional, documented as exception in DESIGN.md
+- **Verified DESIGN.md claims** against styles.css (radius/shadow/motion/gradient/nav-bg/reveal mechanism — all corrected to match reality)
+
+## Left
+- Push b2a5c06 to GitHub (needs user approval)
+- "统一设计系统" upgrade: DESIGN.md done; optional future work = design-consultation mockup generation / more aggressive page-level unification
+
 # Session 2026-08-01
 
 ## Changed
