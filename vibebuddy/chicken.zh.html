@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vibe Chicken - 开源双足强化学习机器人。25cm 双足机器人，15 自由度，相机 + LiDAR + ToF，sim-to-real 训练工作流。">
+    <title>Vibe Chicken - 双足强化学习机器人</title>
+    <link rel="canonical" href="https://iclawmini.com/vibebuddy/chicken.zh.html">
+    <link rel="alternate" hreflang="en" href="https://iclawmini.com/vibebuddy/chicken.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/vibebuddy/chicken.zh.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IClawMini">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:title" content="Vibe Chicken - 双足强化学习机器人">
+    <meta property="og:description" content="开源双足机器人，用强化学习训练它。15 自由度，相机 + LiDAR + ToF，sim-to-real 工作流。">
+    <meta property="og:url" content="https://iclawmini.com/vibebuddy/chicken.zh.html">
+    <meta property="og:image" content="https://iclawmini.com/vibebuddy/VibeChicken.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../favicon.svg">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">跳转到主要内容</a>
+
+    <div data-include="../components/nav-zh.html"></div>
+
+    <main id="main">
+    <section class="content-section cat-hero">
+        <div class="container">
+            <a href="../index.zh.html" class="back-link">&larr; 返回首页</a>
+            <div class="cat-hero-layout">
+            <div class="cat-hero-visual">
+                <img src="VibeChicken.jpg" alt="Vibe Chicken 设备" class="cat-hero-image" loading="lazy">
+                <h1 class="cat-hero-title">Vibe Chicken</h1>
+                <p class="cat-hero-subtitle">一台用强化学习训练的小型双足机器人</p>
+            </div>
+            <div class="cat-hero-info">
+                <h2>产品概览</h2>
+                <p class="cat-hero-desc">
+                    Vibe Chicken 是一台开源的 25cm 双足机器人，为学习而生。双腿、颈部、头部和抓取喙上的 15 个自由度赋予它真正的物理行动力——行走、踢球、抓取、起身。全套技术栈——SDK、仿真环境和强化学习训练管线——完全开源，并配备经过验证的 sim-to-real 工作流。在仿真中训练新行为，部署到机器人上，看它大摇大摆地走起来。
+                </p>
+                <div class="cat-quick-specs">
+                    <div class="spec-card cat-spec-item">
+                        <h3 class="cat-spec-label">形态</h3>
+                        <p class="cat-spec-value">25cm 双足 — 15 自由度，800g</p>
+                    </div>
+                    <div class="spec-card cat-spec-item">
+                        <h3 class="cat-spec-label">算力</h3>
+                        <p class="cat-spec-value">瑞芯微 RK3566 + AI 加速器</p>
+                    </div>
+                    <div class="spec-card cat-spec-item">
+                        <h3 class="cat-spec-label">感知</h3>
+                        <p class="cat-spec-value">相机、LiDAR、8×8 ToF、双 IMU</p>
+                    </div>
+                    <div class="spec-card cat-spec-item">
+                        <h3 class="cat-spec-label">控制</h3>
+                        <p class="cat-spec-value">15 个 Dynamixel 舵机，50Hz 策略循环</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>核心特性</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H8M17 7v9"/>
+                        </svg>
+                    </div>
+                    <h3>真实双足运动</h3>
+                    <p>双腿、颈部、头部和喙共 15 关节。行走、踢球、抓取物体、从地面起身——在桌面上拥有真实的物理行动力。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 3v3M12 21v-3M3 12h3M21 12h-3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>强化学习</h3>
+                    <p>在仿真中用强化学习训练行为，通过经过验证的 sim-to-real 工作流部署。出厂预装 8 个训练动作，剩下的由你教会它。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>完整感知栈</h3>
+                    <p>相机 + 紧凑型 LiDAR + 8×8 飞行时间深度矩阵 + 双 IMU（机身和头部）。它能看见、感知深度、并知晓自身姿态。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 3l1.9 5.8H20l-5 3.6 1.9 5.8-4.9-3.6-4.9 3.6L9 12.4l-5-3.6h6.1z"/>
+                        </svg>
+                    </div>
+                    <h3>全程开源</h3>
+                    <p>SDK、仿真环境、强化学习训练脚本和工具完全开源。机器人上运行的就是你可以阅读、复刻和重新训练的代码。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        </svg>
+                    </div>
+                    <h3>开箱即玩</h3>
+                    <p>通过蓝牙连接或用游戏手柄。手机 App 通过 BLE 控制，相机画面通过 WebRTC 实时传输——无需训练也能立刻开玩。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M12 7v5l3 3"/>
+                        </svg>
+                    </div>
+                    <h3>50Hz 策略循环</h3>
+                    <p>专用控制守护进程在同步总线上以 50Hz 驱动全部 15 个舵机和 IMU——内置安全限制、跌倒检测和关节钳位。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>硬件规格</h2>
+            <div class="spec-grid two-col">
+                <div class="spec-card">
+                    <h3>算力</h3>
+                    <ul class="features-list">
+                        <li>瑞芯微 RK3566 + AI 加速器</li>
+                        <li>1GB 内存，32GB 存储</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>执行机构</h3>
+                    <ul class="features-list">
+                        <li>15 自由度：每条腿 5 + 5（颈部/头部/嘴部）</li>
+                        <li>Dynamixel 舵机，1Mbps 共享总线</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>感知</h3>
+                    <ul class="features-list">
+                        <li>相机（通过 WebRTC 实时传输）</li>
+                        <li>紧凑型 LiDAR + 8×8 ToF 深度矩阵</li>
+                        <li>双 IMU——机身 + 头部（&lt;1ms 四元数）</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>连接</h3>
+                    <ul class="features-list">
+                        <li>Wi-Fi（手机 App 配置）</li>
+                        <li>蓝牙 LE 手机控制</li>
+                        <li>游戏手柄支持（USB / BLE）</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>感知与反馈</h3>
+                    <ul class="features-list">
+                        <li>板载麦克风——40 频段 log-mel 音频特征</li>
+                        <li>每个舵机的电压 + 温度监测</li>
+                        <li>安全层内置跌倒检测和温度限制</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>电源</h3>
+                    <ul class="features-list">
+                        <li>可拆卸 NP-F550 相机电池，2600mAh</li>
+                        <li>视使用情况约 1 小时续航</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>尺寸</h3>
+                    <ul class="features-list">
+                        <li>高 25cm</li>
+                        <li>约 800g</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>系统与运行时</h3>
+                    <ul class="features-list">
+                        <li>Linux，签名 + 可回滚更新</li>
+                        <li>Rust 守护进程——robotd（控制）、mediad、tofd、btd、configd</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>软件与训练栈</h2>
+            <div class="spec-grid two-col">
+                <div class="spec-card card-center">
+                    <h3>开源 SDK</h3>
+                    <p class="card-body">SDK 完整开源——每个守护进程、每个协议、每个策略配置都可读、可复刻。</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>仿真环境</h3>
+                    <p class="card-body">带精确 MJCF 机器人模型的虚拟训练环境。</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>RL 训练脚本</h3>
+                    <p class="card-body">预置强化学习训练脚本，训练行走、踢球、抓取等技能。</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>经过验证的 Sim-to-Real</h3>
+                    <p class="card-body">验证过的 sim-to-real 工作流——仿真中训练的策略可无意外部署到真实机器人。</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>签名更新</h3>
+                    <p class="card-body">OTA 更新经过签名，启动异常时机器人自动回滚。</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>远程查看</h3>
+                    <p class="card-body">相机画面通过 WebRTC 传输到手机——随时随地看它学习。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>使用场景</h2>
+            <div class="spec-grid two-col">
+                <div class="spec-card">
+                    <h3>RL 研究</h3>
+                    <p class="card-body">完整的双足学习平台——用真实硬件反馈训练运动、物体交互和跌倒恢复。</p>
+                </div>
+                <div class="spec-card">
+                    <h3>机器人教育</h3>
+                    <p class="card-body">一个下午从仿真到现实。高校实验课、训练营和自学者都能获得完整管线。</p>
+                </div>
+                <div class="spec-card">
+                    <h3>极客娱乐</h3>
+                    <p class="card-body">踢球、抓笔、在桌面上踱步。出厂 8 个行为开箱即用——无需机器学习背景。</p>
+                </div>
+                <div class="spec-card">
+                    <h3>表演艺术</h3>
+                    <p class="card-body">编排行走、歌唱和动画。嘴部随音频开合——桌面上的机器人表演者。</p>
+                </div>
+                <div class="spec-card">
+                    <h3>嵌入式学习</h3>
+                    <p class="card-body">在真实硬件上学习双电机同步、50Hz 实时控制循环和 Rust 守护进程架构。</p>
+                </div>
+                <div class="spec-card">
+                    <h3>AI 管线开发</h3>
+                    <p class="card-body">从观测空间到奖励函数的策略优化的具体目标平台。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>开源</h2>
+            <div class="spec-grid two-col">
+                <div class="spec-card">
+                    <h3>什么开源</h3>
+                    <p class="card-body">完整软件栈——SDK、仿真、RL 训练脚本和工具——在首批机器人发货前以开源许可发布。</p>
+                </div>
+                <div class="spec-card">
+                    <h3>跑的就是你读到的</h3>
+                    <p class="card-body">机器人上运行的代码就是仓库里的代码。没有闭源二进制，没有黑盒——复刻、重新训练、重新部署。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container section-center">
+            <h2>预购与开发者计划</h2>
+            <div class="spec-grid two-col section-top-margin">
+                <div class="spec-card series-card card-center card-padded">
+                    <h3 class="pricing-title">预购</h3>
+                    <p class="pricing-amount">$399</p>
+                    <p class="card-body">建议零售价 $499</p>
+                    <div class="pricing-details">
+                        <p class="card-body">包含：</p>
+                        <p class="card-body">Vibe Chicken ×1、15 个 Dynamixel 舵机、可充电 NP-F550 电池 ×1、USB-C 线 ×1、快速上手指南 ×1</p>
+                    </div>
+                </div>
+                <div class="spec-card series-card series-pro card-center card-padded">
+                    <h3 class="pricing-title">开发者版</h3>
+                    <p class="pricing-amount">$499</p>
+                    <p class="card-body">预购全部权益 + 抢先 SDK 访问、3D 外壳模型、原理图、RL 训练工作坊</p>
+                    <p class="card-body shipping-note">预计发货：2026 年 Q4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 IClawMini. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="../include.js"></script>
+    <script src="../main.js"></script>
+</body>
+</html>

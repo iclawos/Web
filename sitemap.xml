@@ -57,6 +57,22 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://iclawmini.com/vibebuddy/chicken.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://iclawmini.com/vibebuddy/chicken.zh.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://iclawmini.com/vibebuddy/pods.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://iclawmini.com/vibebuddy/pods.zh.html</loc>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://iclawmini.com/contact.html</loc>
         <priority>0.7</priority>
     </url>

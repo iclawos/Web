@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vibe Chicken - Open-Source Bipedal Robot with Reinforcement Learning. A 25cm bird-brained robot you train yourself — walk, kick, grab, and learn.">
+    <title>Vibe Chicken - Bipedal RL Robot</title>
+    <link rel="canonical" href="https://iclawmini.com/vibebuddy/chicken.html">
+    <link rel="alternate" hreflang="en" href="https://iclawmini.com/vibebuddy/chicken.html">
+    <link rel="alternate" hreflang="zh-CN" href="https://iclawmini.com/vibebuddy/chicken.zh.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IClawMini">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Vibe Chicken - Bipedal RL Robot">
+    <meta property="og:description" content="Open-source bipedal robot you train with reinforcement learning. 15 DOF, camera + LiDAR + ToF, sim-to-real workflow.">
+    <meta property="og:url" content="https://iclawmini.com/vibebuddy/chicken.html">
+    <meta property="og:image" content="https://iclawmini.com/vibebuddy/VibeChicken.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../favicon.svg">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <div data-include="../components/nav-en.html"></div>
+
+    <main id="main">
+    <section class="content-section cat-hero">
+        <div class="container">
+            <a href="../index.html" class="back-link">&larr; Back to Home</a>
+            <div class="cat-hero-layout">
+            <div class="cat-hero-visual">
+                <img src="VibeChicken.jpg" alt="Vibe Chicken Device" class="cat-hero-image" loading="lazy">
+                <h1 class="cat-hero-title">Vibe Chicken</h1>
+                <p class="cat-hero-subtitle">A tiny biped you train with reinforcement learning</p>
+            </div>
+            <div class="cat-hero-info">
+                <h2>Overview</h2>
+                <p class="cat-hero-desc">
+                    Vibe Chicken is an open-source, 25 cm bipedal robot built for one thing: learning. Fifteen degrees of freedom across articulated legs, neck, head and a grasping beak give it real physical agency — walking, kicking, grabbing, and standing up. The full stack — SDK, simulation, and RL training pipeline — is open source, with a tested sim-to-real workflow. Train new behaviors in simulation, deploy them on the robot, watch it strut.
+                </p>
+                <div class="cat-quick-specs">
+                    <div class="spec-card cat-spec-item">
+                        <h3 class="cat-spec-label">Form</h3>
+                        <p class="cat-spec-value">25 cm biped — 15 DOF, 800 g</p>
+                    </div>
+                    <div class="spec-card cat-spec-item">
+                        <h3 class="cat-spec-label">Compute</h3>
+                        <p class="cat-spec-value">Rockchip RK3566 + AI accelerator</p>
+                    </div>
+                    <div class="spec-card cat-spec-item">
+                        <h3 class="cat-spec-label">Perception</h3>
+                        <p class="cat-spec-value">Camera, LiDAR, 8×8 ToF, 2 IMUs</p>
+                    </div>
+                    <div class="spec-card cat-spec-item">
+                        <h3 class="cat-spec-label">Control</h3>
+                        <p class="cat-spec-value">15 Dynamixel servos, 50 Hz policy loop</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>Core Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M7 17L17 7M17 7H8M17 7v9"/>
+                        </svg>
+                    </div>
+                    <h3>Real Bipedal Motion</h3>
+                    <p>15 joints across legs, neck, head and beak. Walks, kicks a ball, grabs objects, and stands up from the ground — real physical agency on the desk.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 3v3M12 21v-3M3 12h3M21 12h-3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Reinforcement Learning</h3>
+                    <p>Train behaviors with RL in simulation and deploy via a tested sim-to-real workflow. Eight trained moves ship in the box — the rest are yours to teach.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Full Perception Stack</h3>
+                    <p>Camera + compact LiDAR + 8×8 time-of-flight depth matrix + two IMUs (body and head). It sees, senses depth, and knows its own posture.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 3l1.9 5.8H20l-5 3.6 1.9 5.8-4.9-3.6-4.9 3.6L9 12.4l-5-3.6h6.1z"/>
+                        </svg>
+                    </div>
+                    <h3>Open Source, All the Way</h3>
+                    <p>SDK, simulation environments, RL training scripts, and tools are fully open source. What the robot runs is what you can read, fork, and retrain.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                        </svg>
+                    </div>
+                    <h3>Playable Out of the Box</h3>
+                    <p>Pair via Bluetooth or plug in a gamepad. Phone app controls over BLE, live camera feed over WebRTC — no training required to have fun.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M12 7v5l3 3"/>
+                        </svg>
+                    </div>
+                    <h3>50 Hz Policy Loop</h3>
+                    <p>A dedicated control daemon drives all 15 servos and the IMU on a single synchronized bus at 50 Hz — safety limits, fall detection and joint clamps built in.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Hardware Specifications</h2>
+            <div class="spec-grid two-col">
+                <div class="spec-card">
+                    <h3>Compute</h3>
+                    <ul class="features-list">
+                        <li>Rockchip RK3566 + AI accelerator</li>
+                        <li>1 GB RAM, 32 GB storage</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Actuation</h3>
+                    <ul class="features-list">
+                        <li>15 DOF: 5 per leg + 5 (neck / head / mouth)</li>
+                        <li>Dynamixel servos on 1 Mbps shared bus</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Perception</h3>
+                    <ul class="features-list">
+                        <li>Camera (streams over WebRTC)</li>
+                        <li>Compact LiDAR + 8×8 ToF depth matrix</li>
+                        <li>2 IMUs — body + head (<1 ms quaternion)</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Connectivity</h3>
+                    <ul class="features-list">
+                        <li>Wi-Fi (config via phone app)</li>
+                        <li>Bluetooth LE for phone control</li>
+                        <li>Gamepad support (USB / BLE)</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Sensing & Feedback</h3>
+                    <ul class="features-list">
+                        <li>Onboard mic — 40-band log-mel audio features</li>
+                        <li>Voltage + temperature sensing per servo</li>
+                        <li>Fall detection and thermal limits in safety layer</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Power</h3>
+                    <ul class="features-list">
+                        <li>Removable NP-F550 battery, 2600 mAh</li>
+                        <li>~1 hour runtime depending on use</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>Dimensions</h3>
+                    <ul class="features-list">
+                        <li>25 cm tall</li>
+                        <li>~800 g</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3>OS & Runtime</h3>
+                    <ul class="features-list">
+                        <li>Linux with signed, rollback-safe updates</li>
+                        <li>Rust daemons — robotd (control), mediad, tofd, btd, configd</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>Software & Training Stack</h2>
+            <div class="spec-grid two-col">
+                <div class="spec-card card-center">
+                    <h3>Open-Source SDK</h3>
+                    <p class="card-body">Full SDK on GitHub — every daemon, every protocol, every policy config is readable and forkable.</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>Simulation Environments</h3>
+                    <p class="card-body">Virtual training environments with an accurate MJCF model of the robot.</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>RL Training Scripts</h3>
+                    <p class="card-body">Pre-built RL training scripts to teach walking, kicking, grabbing and more.</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>Tested Sim-to-Real</h3>
+                    <p class="card-body">A verified sim-to-real workflow — policies trained in simulation deploy to the robot without surprise.</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>Signed Updates</h3>
+                    <p class="card-body">OTA updates are signed, and the robot rolls back automatically if it boots unhealthy.</p>
+                </div>
+                <div class="spec-card card-center">
+                    <h3>Remote Viewing</h3>
+                    <p class="card-body">Live camera feed streamed to your phone over WebRTC — watch it learn from anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Use Cases</h2>
+            <div class="spec-grid two-col">
+                <div class="spec-card">
+                    <h3>RL Research</h3>
+                    <p class="card-body">A full bipedal learning platform — train locomotion, object interaction, and fall recovery with real hardware feedback.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Robotics Education</h3>
+                    <p class="card-body">From sim to real in one afternoon. Undergraduate labs, bootcamps, and self-learners get a complete pipeline.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Hobbyist Play</h3>
+                    <p class="card-body">Kick a ball, grab a pen, strut across the desk. Eight behaviors ship ready — no ML background needed.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Performance Art</h3>
+                    <p class="card-body">Choreograph walks, songs, and animations. The mouth opens with the audio — a robotic performer on your desk.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>Embedded Learning</h3>
+                    <p class="card-body">Study dual-motor sync, 50 Hz real-time control loops, and Rust daemon architecture on real hardware.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>AI Pipeline Dev</h3>
+                    <p class="card-body">A concrete target for policy optimization, from the observation space to the reward function.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section section-alt">
+        <div class="container">
+            <h2>Open Source</h2>
+            <div class="spec-grid two-col">
+                <div class="spec-card">
+                    <h3>What's Open</h3>
+                    <p class="card-body">The full software stack — SDK, simulation, RL training scripts and tools — released under an open license before the first robots ship.</p>
+                </div>
+                <div class="spec-card">
+                    <h3>What Runs Is What You Read</h3>
+                    <p class="card-body">The code on the robot is the code in the repo. No closed binaries, no black boxes — fork, retrain, and redeploy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container section-center">
+            <h2>Pre-Order & Developer Program</h2>
+            <div class="spec-grid two-col section-top-margin">
+                <div class="spec-card series-card card-center card-padded">
+                    <h3 class="pricing-title">Pre-Order</h3>
+                    <p class="pricing-amount">$399</p>
+                    <p class="card-body">Suggested retail $499</p>
+                    <div class="pricing-details">
+                        <p class="card-body">Includes:</p>
+                        <p class="card-body">Vibe Chicken ×1, 15 Dynamixel servos, rechargeable NP-F550 battery ×1, USB-C cable ×1, quick start guide ×1</p>
+                    </div>
+                </div>
+                <div class="spec-card series-card series-pro card-center card-padded">
+                    <h3 class="pricing-title">Developer Edition</h3>
+                    <p class="pricing-amount">$499</p>
+                    <p class="card-body">Everything in Pre-Order + early SDK access, 3D shell models, schematics, RL training workshop</p>
+                    <p class="card-body shipping-note">Estimated shipping: Q4 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 IClawMini. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../include.js"></script>
+    <script src="../main.js"></script>
+</body>
+</html>
